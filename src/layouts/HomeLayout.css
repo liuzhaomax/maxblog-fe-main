@@ -1,0 +1,121 @@
+/****************************************************************************
+ * @copyright   LIU Zhao
+ * @authors     LIU Zhao (liuzhaomax@163.com)
+ * @date        2021/7/28 16:27
+ * @version     v1.0
+ * @filename    MainLayout.css
+ * @description 
+ ***************************************************************************/
+
+.HomeLayout {
+    overflow: hidden;
+    background-color: #5f6b70;
+    /*cursor: url('../assets/leaf.cur'), auto;*/
+}
+
+#parallax-compo {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#parallax-compo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to top, #4b626d, transparent);
+    z-index: 9;
+}
+
+#parallax-compo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+#text {
+    position: absolute;
+    color: white;
+    white-space: nowrap;
+    font-size: 56px;
+    font-weight: bold;
+    margin-top: -420px;
+    pointer-events: none;
+}
+
+#slogan1 {
+    position: absolute;
+    color: white;
+    white-space: nowrap;
+    font-size: 24px;
+    margin-top: -250px;
+    pointer-events: none;
+}
+
+#slogan2 {
+    position: absolute;
+    color: white;
+    white-space: nowrap;
+    font-size: 24px;
+    margin-top: -170px;
+    pointer-events: none;
+}
+
+#instruction {
+    position: absolute;
+    color: white;
+    white-space: nowrap;
+    font-size: 16px;
+    margin-top: -60px;
+    pointer-events: none;
+}
+
+/*#explore {*/
+/*    display: inline-block;*/
+/*    cursor: pointer;*/
+/*    !*cursor: url('../assets/leaf-help.cur'), pointer;*!*/
+/*    border-color: white;*/
+/*    border-width: 2px;*/
+/*    color: #eee;*/
+/*    background-color: rgba(0,0,0,0);*/
+/*    font-weight: bold;*/
+/*    font-size: 1.3rem;*/
+/*    width: 100px;*/
+/*    height: 30px;*/
+/*    margin-top: 30px;*/
+/*    line-height: 20px;*/
+/*    transition-duration: unset;*/
+/*}*/
+
+/*#explore:hover {*/
+/*    border-color: white;*/
+/*    color: white;*/
+/*    box-shadow: inset -2px -2px 6px rgba(255,255,255,1),*/
+/*    inset 2px 2px 6px rgba(255,255,255,1);*/
+/*}*/
+
+#explore {
+    position: absolute;
+}
+
+#explore svg {
+    color: white;
+    width: 45px;
+    height: 45px;
+    margin-top: 30px;
+    transition-duration: unset;
+}
+
+#explore:hover svg{
+    color: #333;
+}
+

@@ -1,0 +1,13 @@
+/****************************************************************************
+ * @copyright   LIU Zhao
+ * @authors     LIU Zhao (liuzhaomax@163.com)
+ * @date        2021/7/28 16:27
+ * @version     v1.0
+ * @filename    MainLayout.css
+ * @description 
+ ***************************************************************************/
+
+.MainLayout {
+    overflow-y: hidden;
+    width: 100%;
+}

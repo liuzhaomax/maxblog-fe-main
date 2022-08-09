@@ -1,0 +1,43 @@
+{
+  "run_mode": "release",
+  "release": {
+    "fe": {
+      "protocol": "https",
+      "domain": "www.endangeredplantsau.ga",
+      "host": "34.129.56.20",
+      "port": "81"
+    },
+    "be": {
+      "protocol": "https",
+      "domain": "be.admin.endangeredplantsau.ga",
+      "host": "34.129.56.20",
+      "port": "8080"
+    },
+    "dp": {
+      "protocol": "https",
+      "domain": "dp.admin.endangeredplantsau.ga",
+      "host": "34.129.56.20",
+      "port": "80"
+    }
+  },
+  "debug": {
+    "fe": {
+      "protocol": "http",
+      "domain": "localhost",
+      "host": "192.168.0.118",
+      "port": "81"
+    },
+    "be": {
+      "protocol": "http",
+      "domain": "localhost",
+      "host": "192.168.0.118",
+      "port": "8080"
+    },
+    "dp": {
+      "protocol": "http",
+      "domain": "localhost",
+      "host": "192.168.0.118",
+      "port": "80"
+    }
+  }
+}

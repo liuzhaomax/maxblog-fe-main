@@ -1,0 +1,53 @@
+/****************************************************************************
+ * @copyright   LIU Zhao
+ * @authors     LIU Zhao (liuzhaomax@163.com)
+ * @date        2021/8/21 9:27
+ * @version     v1.0
+ * @filename    MainNav.css
+ * @description 
+ ***************************************************************************/
+
+.MainNav {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    text-decoration: none;
+    z-index: 999999;
+    box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+    2px 2px 6px rgba(0,0,0,0.2);
+}
+
+#main-nav-menu {
+    margin-left : auto;
+    margin-right: 30px;
+    background-color: rgba(0,0,0,0);
+    border: 0;
+}
+
+#main-nav-menu .menu-item {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0 10px;
+    border-radius: 25px;
+}
+
+#main-nav-logo {
+    margin-left: 2vw;
+    background: url(../assets/logo_big_black.png);
+    height: 32px;
+    width: 204px;
+    min-width: 204px;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+.MainNav .submenu-icon svg {
+    width: 20px;
+    height: 20px;
+}
