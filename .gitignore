@@ -3,6 +3,7 @@
 .idea
 .vscode
 test
+server/build
 
 # dependencies
 /node_modules
