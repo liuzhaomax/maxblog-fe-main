@@ -68,6 +68,18 @@
     font-size: 24px;
     margin-top: -170px;
     pointer-events: none;
+    width: 190px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#slogan2 img {
+    position: relative;
+    height: 24px;
+    width: auto;
 }
 
 #instruction {
