@@ -9,9 +9,9 @@ build:
 	npm run build
 
 # 启动前端
-client_run:
+client:
 	npm start
 
 # 启动后端
-server_run:
+server:
 	@cd server && npm start
