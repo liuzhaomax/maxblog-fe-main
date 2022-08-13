@@ -4,6 +4,7 @@
 .vscode
 test
 server/build
+package-lock.json
 
 # dependencies
 /node_modules

@@ -4,7 +4,7 @@ import Index from "../pages/index/Index"
 import NotFound from "../pages/notFound/NotFound"
 import Home from "../pages/home/Home"
 import HomeLayout from "../layouts/HomeLayout"
-import {HOME, COMPONENT } from "../config/cstModule"
+import { HOME, DEMO, PROJECT, ARTICLE } from "../config/cstModule"
 import {MAIN_LAYOUT} from "../config/cstLayout"
 
 const lazyLoad = path => {
@@ -23,7 +23,9 @@ export default (
 			<Route path={HOME.PATH} element={<Home/>}/>
 		</Route>
 		<Route element={lazyLoad(MAIN_LAYOUT.FILE_PATH)}>
-			<Route path={COMPONENT.PATH} element={lazyLoad(COMPONENT.FILE_PATH)}/>
+			<Route path={ARTICLE.PATH} element={lazyLoad(ARTICLE.FILE_PATH)}/>
+			<Route path={DEMO.PATH} element={lazyLoad(DEMO.FILE_PATH)}/>
+			<Route path={PROJECT.PATH} element={lazyLoad(PROJECT.FILE_PATH)}/>
 		</Route>
 		<Route path="*" element={<NotFound/>}/>
 	</Routes>
