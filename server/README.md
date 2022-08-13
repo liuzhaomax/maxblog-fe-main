@@ -1,4 +1,4 @@
-# IEP2021S2FE Deployment CI/CD
+# MaxBlog-FE-Main Deployment CI/CD
 
 ### `npm install`
 Installing dependencies
