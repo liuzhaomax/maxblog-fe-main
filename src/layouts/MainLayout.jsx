@@ -5,13 +5,13 @@ import MainNav from "./MainNav"
 import Footer from "./Footer"
 
 function MainLayout() {
-	return (
-		<div className="MainLayout">
-			<MainNav/>
-			<Outlet/>
-			<Footer/>
-		</div>
-	)
+    return (
+        <div className="MainLayout">
+            <MainNav/>
+            <Outlet/>
+            <Footer/>
+        </div>
+    )
 }
 
 export default MainLayout

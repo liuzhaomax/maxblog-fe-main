@@ -3,11 +3,11 @@ import "./Article.css"
 import { ARTICLE } from "../../config/cstModule"
 
 function Article() {
-	return (
-		<div id={ARTICLE.KEY} className={ARTICLE.KEY}>
+    return (
+        <div id={ARTICLE.KEY} className={ARTICLE.KEY}>
             I am Component
-		</div>
-	)
+        </div>
+    )
 }
 
 export default Article

@@ -2,21 +2,21 @@ import { createSlice } from "@reduxjs/toolkit"
 // import { useDispatch, useSelector } from "react-redux"
 
 const initialState = {
-	toppings: ["pepper"],
-	gluten: true,
+    toppings: ["pepper"],
+    gluten: true,
 }
 
 export const pizzaSlice = createSlice({
-	name: "pizza",
-	initialState,
-	reducers: {
-		toggleGluten: state => {
-			state.gluten = !state.gluten
-		},
-		addTopping: (state, action) => {
-			state.toppings = [...state.toppings, action.payload]
-		}
-	},
+    name: "pizza",
+    initialState,
+    reducers: {
+        toggleGluten: state => {
+            state.gluten = !state.gluten
+        },
+        addTopping: (state, action) => {
+            state.toppings = [...state.toppings, action.payload]
+        }
+    },
 })
 
 export const { toggleGluten, addTopping } = pizzaSlice.actions

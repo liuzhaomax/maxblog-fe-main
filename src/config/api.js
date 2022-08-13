@@ -1,8 +1,8 @@
 export const URL = {
-	INNER: {
+    INNER: {
 
-	},
-	OUTER: {
-		Contributors: "https://api.github.com/repos/liuzhaomax/maxblog-fe-template/contributors",
-	},
+    },
+    OUTER: {
+        Contributors: "https://api.github.com/repos/liuzhaomax/maxblog-fe-template/contributors",
+    },
 }
