@@ -12,7 +12,7 @@ function Footer() {
 
 	useEffect(() => {
 		generateContributors()
-	})
+	},[])
 
 	const generateContributors = () => {
 		let container = document.getElementById("CONTRIBUTORS")
