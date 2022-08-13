@@ -38,21 +38,21 @@ function MainNav() {
         if (document.body.clientWidth >= 1020) {
             setMenu(
                 <Menu id="main-nav-menu" className="menu"
-                      onClick={toggleNav}
-                      selectedKeys={[current]}
-                      mode={"horizontal"}
-                      key="nav-menu-without-sub"
-                      items={MENU_ITEMS_WITHOUT_SUB}
+                    onClick={toggleNav}
+                    selectedKeys={[current]}
+                    mode={"horizontal"}
+                    key="nav-menu-without-sub"
+                    items={MENU_ITEMS_WITHOUT_SUB}
                 />
             )
         } else {
             setMenu(
                 <Menu id="main-nav-menu" className="menu"
-                      onClick={toggleNav}
-                      selectedKeys={[current]}
-                      mode={"horizontal"}
-                      key="nav-menu-with-sub"
-                      items={MENU_ITEMS_WITH_SUB}
+                    onClick={toggleNav}
+                    selectedKeys={[current]}
+                    mode={"horizontal"}
+                    key="nav-menu-with-sub"
+                    items={MENU_ITEMS_WITH_SUB}
                 />
             )
         }
