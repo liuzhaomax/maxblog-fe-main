@@ -5,24 +5,24 @@ import { getContributors } from "./handlers"
 import HomeProjIntro from "./HomeProjIntro"
 
 function Home() {
-	const [contributors, setContributors] = useState(null)
+    const [contributors, setContributors] = useState(null)
 
-	useEffect(() => {
-		(async () => {
-			await getContributors()
-				.then(res => {
-					setContributors(res.data)
-				})
-				.catch(err => {
-					console.log(err)
-				})
-		})()
-	},[])
+    useEffect(() => {
+        (async () => {
+            await getContributors()
+                .then(res => {
+                    setContributors(res.data)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        })()
+    },[])
 
-	return (
-		<div id={HOME.KEY} className={HOME.KEY}>
-			<HomeProjIntro/>
-			<p>{contributors ? contributors[0].login : "" }</p>
+    return (
+        <div id={HOME.KEY} className={HOME.KEY}>
+            <HomeProjIntro/>
+            <p>{contributors ? contributors[0].login : "" }</p>
 			I am Home <br/>
 			I am Home <br/>
 			I am Home <br/>
@@ -97,8 +97,8 @@ function Home() {
 			I am Home <br/>
 			I am Home <br/>
 			I am Home <br/>
-		</div>
-	)
+        </div>
+    )
 }
 
 export default Home

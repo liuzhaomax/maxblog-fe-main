@@ -10,17 +10,17 @@ import { _STORE } from "./state/store"
 
 // https upgrading config
 if (configJson.run_mode === "release") {
-	const head = document.getElementsByTagName("head")[0]
-	const https = document.createElement("meta")
-	https.setAttribute("http-equiv", "Content-Security-Policy")
-	https.setAttribute("content", "upgrade-insecure-requests")
-	head.appendChild(https)
+    const head = document.getElementsByTagName("head")[0]
+    const https = document.createElement("meta")
+    https.setAttribute("http-equiv", "Content-Security-Policy")
+    https.setAttribute("content", "upgrade-insecure-requests")
+    head.appendChild(https)
 }
 
 axios.defaults.baseURL = config.beBaseUrl
 
 createRoot(document.getElementById("root")).render(
-	<Provider store={_STORE}>
-		<App store={_STORE} />
-	</Provider>
+    <Provider store={_STORE}>
+        <App store={_STORE} />
+    </Provider>
 )

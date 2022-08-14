@@ -6,5 +6,5 @@ import thunk from "redux-thunk"
 // import logger from "redux-logger"
 
 export const _STORE = configureStore({
-	reducer: rootReducer,
+    reducer: rootReducer,
 }, composeWithDevTools(applyMiddleware(thunk)))

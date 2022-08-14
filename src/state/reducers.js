@@ -2,7 +2,7 @@ import { combineReducers } from "redux"
 import pizzaSlice from "./reducers/pizzaSlice"
 
 const rootReducer = combineReducers({
-	pizzaSlice,
+    pizzaSlice,
 })
 
 export default rootReducer
