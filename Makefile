@@ -15,3 +15,7 @@ client:
 # 启动后端
 server:
 	@cd server && npm start
+
+# 单元测试
+unit:
+	npm test
