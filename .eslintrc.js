@@ -37,7 +37,7 @@ module.exports = {
         ],
         "linebreak-style": [
             "error",
-            "windows"
+            (require("./src/env/env.json")).run_mode === "prod" ? "unix" : "windows"
         ],
         "quotes": [
             "error",
