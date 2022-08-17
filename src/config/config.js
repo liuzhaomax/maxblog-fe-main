@@ -1,9 +1,9 @@
-import configJson from "../config/config.json"
+import env from "../env/env.json"
 
 const config = {
-    domain: configJson.release.fe.domain,
-    beBaseUrl: configJson.run_mode === "release" ?
-        `${configJson.release.be.protocol}://${configJson.release.be.domain}` :
-        `${configJson.debug.be.protocol}://${configJson.debug.be.host}:${configJson.debug.be.port}`
+    domain: env.prod.fe.domain,
+    beBaseUrl: env.run_mode === "prod" ?
+        `${env.prod.be.protocol}://${env.prod.be.domain}` :
+        `${env.dev.be.protocol}://${env.dev.be.host}:${env.dev.be.port}`
 }
 export default config

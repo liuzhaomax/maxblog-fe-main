@@ -3,13 +3,13 @@ import { createRoot } from "react-dom/client"
 import "./index.css"
 import App from "./app/App"
 import { Provider } from "react-redux"
-import configJson from "./config/config.json"
+import env from "./env/env.json"
 import axios from "axios"
 import config from "./config/config"
 import { _STORE } from "./state/store"
 
 // https upgrading config
-if (configJson.run_mode === "release") {
+if (env.run_mode === "prod") {
     const head = document.getElementsByTagName("head")[0]
     const https = document.createElement("meta")
     https.setAttribute("http-equiv", "Content-Security-Policy")
