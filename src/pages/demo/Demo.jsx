@@ -1,14 +1,12 @@
 import React from "react"
 import "./Demo.css"
 import { DEMO } from "../../config/cstModule"
+import UseState from "./UseState"
 
 function Demo() {
     return (
         <div id={DEMO.KEY} className={DEMO.KEY}>
-            DEMODEMODEMODEMO
-            DEMO
-            DEMO
-            DEMO
+            <UseState />
         </div>
     )
 }
