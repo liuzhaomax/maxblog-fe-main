@@ -71,7 +71,8 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "lint": "eslint src --fix",
-    "lint:create": "eslint --init"
+    "lint:create": "eslint --init",
+    "lint:report": "eslint ./src -f json --ext .js,.jsx,.css,.scss"
   },
   "eslintConfig": {
     "extends": [
