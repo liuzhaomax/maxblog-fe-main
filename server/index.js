@@ -7,6 +7,7 @@ const logger = require("morgan")
 const debug = require("debug")("my-application")
 
 const app = express()
+app.disable("x-powered-by")
 
 app.engine("html", ejs.renderFile)
     .set("views", path.resolve(__dirname, "./build"))
