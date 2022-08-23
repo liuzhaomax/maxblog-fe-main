@@ -78,11 +78,13 @@ pipeline {
 //                 tag("v*")
 //                 buildingTag()
 //             }
-            if ("${tag}") {
-                steps {
-                    echo '--------------------- App Version Start ---------------------'
-                    echo 'App Version: ${tag}'
-                    echo '--------------------- App Version End ---------------------'
+            script {
+                if ("${tag}") {
+                    steps {
+                        echo '--------------------- App Version Start ---------------------'
+                        echo 'App Version: ${tag}'
+                        echo '--------------------- App Version End ---------------------'
+                    }
                 }
             }
         }
