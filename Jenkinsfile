@@ -251,7 +251,7 @@ pipeline {
         }
 
         failure {
-            echo 'FAILURE 失败'
+//            echo 'FAILURE 失败'
             error "错误发生，流水线失败"
         }
 
