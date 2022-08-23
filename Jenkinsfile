@@ -73,16 +73,13 @@ pipeline {
 //         }
         // 检查App版本
         stage('App Version') {
-//             when {
-//                 expression {
-//                     return (buildingTag() == true )
-//                 }
-//             }
+            when {
+                expression {
+                    return (buildingTag() == true )
+                }
+            }
             steps {
                 echo '--------------------- App Version Start ---------------------'
-                script {
-                    println(buildingTag())
-                }
                 echo 'App Version: ${tag}'
                 echo '--------------------- App Version End ---------------------'
             }
