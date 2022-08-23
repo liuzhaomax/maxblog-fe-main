@@ -192,7 +192,7 @@ pipeline {
                 timeout(time: 10, unit: "MINUTES"){
                     sh """
                         docker login -u ${harborUsername} -p ${harborPassword} ${harborAddress}
-                        docker tag ${JOB_NAME} ${harborAddress}/${harborRepo}/${JOB_NAME}:${tag}
+                        docker tag ${JOB_NAME}:${tag} ${harborAddress}/${harborRepo}/${JOB_NAME}:${tag}
                         docker push ${harborAddress}/${harborRepo}/${JOB_NAME}:${tag}
                     """
                 }
