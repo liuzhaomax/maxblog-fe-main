@@ -250,15 +250,5 @@ pipeline {
             echo 'SUCCESS 成功'
             sh "docker image prune -f"
         }
-
-        failure {
-            echo 'FAILURE 失败'
-            error "错误发生，流水线失败"
-        }
-
-        aborted {
-            echo 'ABORTED 取消'
-            error "流水线被终止"
-        }
     }
 }
