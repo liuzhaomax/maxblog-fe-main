@@ -72,14 +72,13 @@ pipeline {
 //             }
 //         }
         // 检查App版本
-
-            if ("${tag}") {
         stage('App Version') {
 //             when {
 // //                 tag pattern: "v*"
 //                 tag("v*")
 //                 buildingTag()
 //             }
+            if ("${tag}") {
                 steps {
                     echo '--------------------- App Version Start ---------------------'
                     echo 'App Version: ${tag}'
