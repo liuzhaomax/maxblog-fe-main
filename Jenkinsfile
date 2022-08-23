@@ -213,22 +213,22 @@ pipeline {
                 echo '--------------------- Deploy End ---------------------'
             }
         }
-        stage('Git Tag') {
-            when {
-                buildingTag()
-            }
-            steps {
-                echo 'Git Tag - SUCCESS'
-            }
-        }
-        stage('Package Config') {
-            when {
-                buildingTag()
-            }
-            steps {
-                echo 'Package Config - SUCCESS'
-            }
-        }
+//         stage('Git Tag') {
+//             when {
+//                 buildingTag()
+//             }
+//             steps {
+//                 echo 'Git Tag - SUCCESS'
+//             }
+//         }
+//         stage('Package Config') {
+//             when {
+//                 buildingTag()
+//             }
+//             steps {
+//                 echo 'Package Config - SUCCESS'
+//             }
+//         }
     }
     // 构建后的操作
     post {
@@ -247,10 +247,12 @@ pipeline {
 
         failure {
             echo 'FAILURE 失败'
+            error "错误发生，流水线失败"
         }
 
         aborted {
             echo 'ABORTED 取消'
+            error "流水线被终止"
         }
     }
 }
