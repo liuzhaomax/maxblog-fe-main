@@ -82,32 +82,32 @@ pipeline {
                 echo '--------------------- App Version End ---------------------'
             }
         }
-//         // 语法格式检查
-//         stage('Lint') {
-//             steps {
-//                 echo '--------------------- Lint Start ---------------------'
-//                 script {
-//                     timeout(time: 30, unit: "MINUTES"){
-//                         npmHome = tool "npm"
-//                         sh """
-//                             export NODE_HOME=${npmHome}
-//                             export PATH=\$NODE_HOME/bin:\$PATH
-//                             rm -rf server/build
-//                             rm -rf node_modules package-lock.json server/node_modules server/package-lock.json
-//                             npm cache clear --force
-//                             node --version
-//                             npm --version
-//                             ${npmHome}/bin/npm install
-//                             # ${npmHome}/bin/npm install -g eslint
-//                             # ${npmHome}/bin/npm install -g eslint-plugin-react
-//                             ${npmHome}/bin/npm run lint
-//                             ${npmHome}/bin/npm run lint:report
-//                         """
-//                     }
-//                 }
-//                 echo '--------------------- Lint End ---------------------'
-//             }
-//         }
+        // 语法格式检查
+        stage('Lint') {
+            steps {
+                echo '--------------------- Lint Start ---------------------'
+                script {
+                    timeout(time: 30, unit: "MINUTES"){
+                        npmHome = tool "npm"
+                        sh """
+                            export NODE_HOME=${npmHome}
+                            export PATH=\$NODE_HOME/bin:\$PATH
+                            rm -rf server/build
+                            rm -rf node_modules package-lock.json server/node_modules server/package-lock.json
+                            npm cache clear --force
+                            node --version
+                            npm --version
+                            ${npmHome}/bin/npm install
+                            # ${npmHome}/bin/npm install -g eslint
+                            # ${npmHome}/bin/npm install -g eslint-plugin-react
+                            ${npmHome}/bin/npm run lint
+                            ${npmHome}/bin/npm run lint:report
+                        """
+                    }
+                }
+                echo '--------------------- Lint End ---------------------'
+            }
+        }
         // 构建
         stage('Build') {
             steps {
