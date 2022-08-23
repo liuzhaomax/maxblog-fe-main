@@ -97,11 +97,11 @@ pipeline {
                             npm cache clear --force
                             node --version
                             npm --version
-                            ${npmHome}/bin/npm install
-                            # ${npmHome}/bin/npm install -g eslint
-                            # ${npmHome}/bin/npm install -g eslint-plugin-react
-                            ${npmHome}/bin/npm run lint
-                            ${npmHome}/bin/npm run lint:report
+                            npm install
+                            # npm install -g eslint
+                            # npm install -g eslint-plugin-react
+                            npm run lint
+                            npm run lint:report
                         """
                     }
                 }
