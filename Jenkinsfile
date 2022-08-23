@@ -30,7 +30,6 @@ pipeline {
                     checkout([$class: 'GitSCM', branches: [[name: '${tag}']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/liuzhaomax/maxblog-fe-main.git']]])
                 }
                 echo '--------------------- Checkout End ---------------------'
-                echo buildingTag()
             }
         }
 //         // 本地github会用到
