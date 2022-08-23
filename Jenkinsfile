@@ -14,6 +14,7 @@ pipeline {
     }
     // 声明全局变量
     environment {
+        buildingTag = false
         harborUsername = "admin"
         harborPassword = "Harbor12345"
         harborAddress = "168.138.30.224:9002"
@@ -74,7 +75,22 @@ pipeline {
         // 检查App版本
         stage('App Version') {
             when {
-                buildingTag()
+                expression {
+                    return (buildingTag == "true" )
+                }
+            }
+            steps {
+                echo '--------------------- App Version Start ---------------------'
+                echo 'App Version: ${tag}'
+                echo '--------------------- App Version End ---------------------'
+            }
+        }
+
+        stage('App Version 1') {
+            when {
+                expression {
+                    return (buildingTag == "false" )
+                }
             }
             steps {
                 echo '--------------------- App Version Start ---------------------'
