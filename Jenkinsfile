@@ -94,14 +94,14 @@ pipeline {
                             export PATH=\$NODE_HOME/bin:\$PATH
                             rm -rf server/build
                             rm -rf node_modules package-lock.json server/node_modules server/package-lock.json
-                            npm cache clear --force
-                            node --version
-                            npm --version
-                            npm install
-                            # npm install -g eslint
-                            # npm install -g eslint-plugin-react
-                            npm run lint
-                            npm run lint:report
+                            ${npmHome}/bin/npm cache clear --force
+                            ${npmHome}/bin/node --version
+                            ${npmHome}/bin/npm --version
+                            ${npmHome}/bin/npm install
+                            # ${npmHome}/bin/npm install -g eslint
+                            # ${npmHome}/bin/npm install -g eslint-plugin-react
+                            ${npmHome}/bin/npm run lint
+                            ${npmHome}/bin/npm run lint:report
                         """
                     }
                 }
