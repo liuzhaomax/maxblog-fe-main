@@ -31,7 +31,7 @@ pipeline {
                 echo '--------------------- Checkout End ---------------------'
             }
         }
-        // 本地github会用到
+//         // 本地github会用到
 //         stage('Update GitHub') {
 //             steps {
 //                 echo '--------------------- Update GitHub Start ---------------------'
@@ -48,7 +48,7 @@ pipeline {
 //                 echo '--------------------- Update GitHub End ---------------------'
 //             }
 //         }
-        // 设置环境，建议跳过
+//         // 设置环境，建议跳过
 //         stage('Change Node Version') {
 //             steps {
 //                 echo 'Change Node Version - SUCCESS'
@@ -82,81 +82,81 @@ pipeline {
                 echo '--------------------- App Version End ---------------------'
             }
         }
-//         // 语法格式检查
-//         stage('Lint') {
-//             steps {
-//                 echo '--------------------- Lint Start ---------------------'
-//                 script {
-//                     timeout(time: 30, unit: "MINUTES"){
-//                         npmHome = tool "npm"
-//                         sh """
-//                             export NODE_HOME=${npmHome}
-//                             export PATH=\$NODE_HOME/bin:\$PATH
-//                             rm -rf server/build
-//                             rm -rf node_modules package-lock.json server/node_modules server/package-lock.json
-//                             npm cache clear --force
-//                             node --version
-//                             npm --version
-//                             # ${npmHome}/bin/npm install
-//                             ${npmHome}/bin/npm install --save-dev eslint
-//                             ${npmHome}/bin/npm run lint
-//                             ${npmHome}/bin/npm run lint:report
-//                         """
-//                     }
-//                 }
-//                 echo '--------------------- Lint End ---------------------'
-//             }
-//         }
-//         // 构建
-//         stage('Build') {
-//             steps {
-//                 echo '--------------------- Build Start ---------------------'
-//                 script {
-//                     timeout(time: 20, unit: "MINUTES"){
-//                         npmHome = tool "npm" //变量名npm在jenkins全局工具里定义的
-//                         sh """
-//                             export NODE_HOME=${npmHome}
-//                             export PATH=\$NODE_HOME/bin:\$PATH
-//                             ${npmHome}/bin/npm run build
-//                             # ${npmHome}/bin/npm test
-//                             cd server
-//                             ${npmHome}/bin/npm install
-//                             cd ..
-//                         """
-//                         // tar -zcvf 文件名.tar.gz 打包
-//                         // cd到别处
-//                         // rm -rf *
-//                         // mv 路径/server/文件名.tar.gz ./
-//                         // tar -zxvf 文件名.tar.gz -C ./  解压缩
-//                         // rm -rf 文件名.tar.gz  删除压缩包
-//                     }
-//                 }
-//                 echo '--------------------- Build End ---------------------'
-//             }
-//         }
-//         // 静态代码分析SonarQube
-//         stage('SonarQube') {
-//             steps {
-//                 echo '--------------------- SonarQube Start ---------------------'
-//                 script {
-//                     timeout(time: 20, unit: "MINUTES"){
-//                         sonarScannerHome = tool "sonar-scanner"
-//                         sh """
-//                             ${sonarScannerHome}/bin/sonar-scanner \
-//                                 -Dsonar.sources=./ \
-//                                 -Dsonar.projectname=${JOB_NAME} \
-//                                 -Dsonar.login=8ed4baf9ba0204179095df34597c503c4b857b8a \
-//                                 -Dsonar.projectKey=${JOB_NAME} \
-//                                 -Dsonar.nodejs.executable=/usr/bin/node \
-//                                 -Dsonar.inclusions=src/**/*.js,src/**/*.jsx \
-//                                 -Dsonar.coverage.exclusions=node_modules/**/*,server/build/**/*,config/**/*,scripts/**/*,public/**/*,src/config/**/* \
-//                                 -Dsonar.qualitygate.wait=true
-//                         """
-//                     }
-//                 }
-//                 echo '--------------------- SonarQube End ---------------------'
-//             }
-//         }
+        // 语法格式检查
+        stage('Lint') {
+            steps {
+                echo '--------------------- Lint Start ---------------------'
+                script {
+                    timeout(time: 30, unit: "MINUTES"){
+                        npmHome = tool "npm"
+                        sh """
+                            export NODE_HOME=${npmHome}
+                            export PATH=\$NODE_HOME/bin:\$PATH
+                            rm -rf server/build
+                            rm -rf node_modules package-lock.json server/node_modules server/package-lock.json
+                            npm cache clear --force
+                            node --version
+                            npm --version
+                            # ${npmHome}/bin/npm install
+                            ${npmHome}/bin/npm install --save-dev eslint
+                            ${npmHome}/bin/npm run lint
+                            ${npmHome}/bin/npm run lint:report
+                        """
+                    }
+                }
+                echo '--------------------- Lint End ---------------------'
+            }
+        }
+        // 构建
+        stage('Build') {
+            steps {
+                echo '--------------------- Build Start ---------------------'
+                script {
+                    timeout(time: 20, unit: "MINUTES"){
+                        npmHome = tool "npm" //变量名npm在jenkins全局工具里定义的
+                        sh """
+                            export NODE_HOME=${npmHome}
+                            export PATH=\$NODE_HOME/bin:\$PATH
+                            ${npmHome}/bin/npm run build
+                            # ${npmHome}/bin/npm test
+                            cd server
+                            ${npmHome}/bin/npm install
+                            cd ..
+                        """
+                        // tar -zcvf 文件名.tar.gz 打包
+                        // cd到别处
+                        // rm -rf *
+                        // mv 路径/server/文件名.tar.gz ./
+                        // tar -zxvf 文件名.tar.gz -C ./  解压缩
+                        // rm -rf 文件名.tar.gz  删除压缩包
+                    }
+                }
+                echo '--------------------- Build End ---------------------'
+            }
+        }
+        // 静态代码分析SonarQube
+        stage('SonarQube') {
+            steps {
+                echo '--------------------- SonarQube Start ---------------------'
+                script {
+                    timeout(time: 20, unit: "MINUTES"){
+                        sonarScannerHome = tool "sonar-scanner"
+                        sh """
+                            ${sonarScannerHome}/bin/sonar-scanner \
+                                -Dsonar.sources=./ \
+                                -Dsonar.projectname=${JOB_NAME} \
+                                -Dsonar.login=8ed4baf9ba0204179095df34597c503c4b857b8a \
+                                -Dsonar.projectKey=${JOB_NAME} \
+                                -Dsonar.nodejs.executable=/usr/bin/node \
+                                -Dsonar.inclusions=src/**/*.js,src/**/*.jsx \
+                                -Dsonar.coverage.exclusions=node_modules/**/*,server/build/**/*,config/**/*,scripts/**/*,public/**/*,src/config/**/* \
+                                -Dsonar.qualitygate.wait=true
+                        """
+                    }
+                }
+                echo '--------------------- SonarQube End ---------------------'
+            }
+        }
 //         // 安全漏洞扫描Nessus
 //         stage('Checkmarx') {
 //             steps {
