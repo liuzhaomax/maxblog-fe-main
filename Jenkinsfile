@@ -26,7 +26,7 @@ pipeline {
             steps {
                 echo '--------------------- Checkout Start ---------------------'
                 timeout(time: 5, unit: "MINUTES"){
-                    checkout([$class: 'GitSCM', branches: [[name: '${tag}']], extensions: [[noTags: false]], userRemoteConfigs: [[url: 'https://github.com/liuzhaomax/maxblog-fe-main.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: '${tag}']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/liuzhaomax/maxblog-fe-main.git']]])
                 }
                 echo '--------------------- Checkout End ---------------------'
             }
