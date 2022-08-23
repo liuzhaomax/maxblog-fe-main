@@ -33,6 +33,6 @@ router.get("/", (req, res, next) => {
 app.use("/", router)
 
 app.listen(80, (req, res) => {
-    console.log("Server for users running on 80.")
+    console.log("Server fe-main running on 80.")
     debug()
 })
