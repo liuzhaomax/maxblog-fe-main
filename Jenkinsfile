@@ -75,7 +75,7 @@ pipeline {
         stage('App Version') {
             when {
 //                 tag pattern: "v*"
-                tag()
+                tag("v*")
             }
             steps {
                 echo '--------------------- App Version Start ---------------------'
