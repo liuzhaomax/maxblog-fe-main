@@ -14,7 +14,6 @@ pipeline {
     }
     // 声明全局变量
     environment {
-        buildingTag = buildingTag()
         harborUsername = "admin"
         harborPassword = "Harbor12345"
         harborAddress = "168.138.30.224:9002"
@@ -30,7 +29,6 @@ pipeline {
                     checkout([$class: 'GitSCM', branches: [[name: '${tag}']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/liuzhaomax/maxblog-fe-main.git']]])
                 }
                 echo '--------------------- Checkout End ---------------------'
-                echo buildingTag
             }
         }
 //         // 本地github会用到
@@ -77,7 +75,7 @@ pipeline {
         stage('App Version') {
             when {
                 expression {
-                    return (buildingTag == true )
+                    return (buildingTag() == true )
                 }
             }
             steps {
@@ -89,7 +87,7 @@ pipeline {
         stage('App Version f') {
             when {
                 expression {
-                    return (buildingTag == false )
+                    return (buildingTag() == false )
                 }
             }
             steps {
