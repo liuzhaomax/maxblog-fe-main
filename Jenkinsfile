@@ -99,7 +99,8 @@ pipeline {
                             npm --version
                             # ${npmHome}/bin/npm install
                             ${npmHome}/bin/npm install -g eslint
-                            ${npmHome}/bin/npm install -g eslint-plugin-react
+                            # ${npmHome}/bin/npm install -g eslint-plugin-react
+                            ${npmHome}/bin/npm install eslint-plugin-react@latest --save-dev
                             ${npmHome}/bin/npm run lint
                             ${npmHome}/bin/npm run lint:report
                         """
