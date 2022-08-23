@@ -75,7 +75,7 @@ pipeline {
         stage('App Version') {
             when {
                 expression {
-                    return (isVersionTag(readCurrentTag()) == true )
+                    return isVersionTag(readCurrentTag())
                 }
             }
             steps {
