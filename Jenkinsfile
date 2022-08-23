@@ -30,6 +30,7 @@ pipeline {
                     checkout([$class: 'GitSCM', branches: [[name: '${tag}']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/liuzhaomax/maxblog-fe-main.git']]])
                 }
                 echo '--------------------- Checkout End ---------------------'
+                error "abc"
             }
         }
 //         // 本地github会用到
