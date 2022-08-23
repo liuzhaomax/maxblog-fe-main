@@ -100,6 +100,7 @@ pipeline {
                             # ${npmHome}/bin/npm install
                             # ${npmHome}/bin/npm install -g eslint
                             # ${npmHome}/bin/npm install -g eslint-plugin-react
+                            pwd
                             ${npmHome}/bin/npm run lint
                             ${npmHome}/bin/npm run lint:report
                         """
