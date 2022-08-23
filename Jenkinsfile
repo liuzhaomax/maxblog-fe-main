@@ -92,6 +92,7 @@ pipeline {
                 echo '--------------------- App Version Start ---------------------'
                 echo 'App Version: ${tag}'
                 echo '--------------------- App Version End ---------------------'
+                echo "${tag}"
             }
         }
 //         // 语法格式检查
