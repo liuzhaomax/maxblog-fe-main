@@ -72,15 +72,19 @@ pipeline {
 //             }
 //         }
         // 检查App版本
+
+            if ("${tag}") {
         stage('App Version') {
-            when {
-//                 tag pattern: "v*"
-                tag("v*")
-            }
-            steps {
-                echo '--------------------- App Version Start ---------------------'
-                echo 'App Version: ${tag}'
-                echo '--------------------- App Version End ---------------------'
+//             when {
+// //                 tag pattern: "v*"
+//                 tag("v*")
+//                 buildingTag()
+//             }
+                steps {
+                    echo '--------------------- App Version Start ---------------------'
+                    echo 'App Version: ${tag}'
+                    echo '--------------------- App Version End ---------------------'
+                }
             }
         }
         stage('App Version f') {
