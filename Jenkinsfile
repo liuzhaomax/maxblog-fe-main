@@ -84,8 +84,10 @@ pipeline {
                     timeout(time: 30, unit: "MINUTES"){
                         npmHome = tool "npm"
                         sh """
+                            export NODE_HOME=${npmHome}
+                            export PATH=\$NODE_HOME/bin:\$PATH
                             # ${npmHome}/bin/npm install
-                            sudo ${npmHome}/bin/npm install --save-dev eslint
+                            ${npmHome}/bin/npm install --save-dev eslint
                             # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
                             ${npmHome}/bin/npm run lint
                             # ${npmHome}/bin/npm run lint:report
