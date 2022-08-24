@@ -65,8 +65,8 @@ pipeline {
                         rm -rf node_modules package-lock.json server/node_modules server/package-lock.json
                         ${npmHome}/bin/npm cache clear --force
                         ${npmHome}/bin/node --version
-                        ${npmHome}/bin/npm --version
                         ${npmHome}/bin/npm install -g npm@6
+                        ${npmHome}/bin/npm --version
                     """
                     // grep "^go .*" go.mod
                     // cut -f 2 -d
