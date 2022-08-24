@@ -87,9 +87,9 @@ pipeline {
                         sh """
                             export NODE_HOME=${npmHome}
                             export PATH=\$NODE_HOME/bin:\$PATH
-                            # ${npmHome}/bin/npm install
-                            ${npmHome}/bin/npm install --save-dev eslint
-                            ${npmHome}/bin/npm install --save-dev eslint-plugin-react
+                            ${npmHome}/bin/npm install
+                            # ${npmHome}/bin/npm install --save-dev eslint
+                            # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
                             ${npmHome}/bin/npm run lint
                             # ${npmHome}/bin/npm run lint:report
                         """
@@ -108,9 +108,6 @@ pipeline {
                         sh """
                             export NODE_HOME=${npmHome}
                             export PATH=\$NODE_HOME/bin:\$PATH
-                            ${npmHome}/bin/npm install --save react-dev-utils
-                            ${npmHome}/bin/npm install --save fs-extra
-                            ${npmHome}/bin/npm install --save bfj
                             ${npmHome}/bin/npm run build
                             # ${npmHome}/bin/npm test
                             cd server
