@@ -66,6 +66,7 @@ pipeline {
                         ${npmHome}/bin/npm cache clear --force
                         ${npmHome}/bin/node --version
                         ${npmHome}/bin/npm --version
+                        ${npmHome}/bin/npm install -g npm@6
                     """
                     // grep "^go .*" go.mod
                     // cut -f 2 -d
