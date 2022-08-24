@@ -73,22 +73,8 @@ pipeline {
 //         }
         // 检查App版本
         stage('App Version') {
-//             when {
-// //                 tag pattern: "v*"
-//                 tag("v*")
-//                 buildingTag()
-//             }
-            steps {
-                echo '--------------------- App Version Start ---------------------'
-                echo 'App Version: ${tag}'
-                echo '--------------------- App Version End ---------------------'
-            }
-        }
-        stage('App Version f') {
             when {
-                expression {
-                    return true
-                }
+                buildingTag()
             }
             steps {
                 echo '--------------------- App Version Start ---------------------'
@@ -183,9 +169,7 @@ pipeline {
 //         // 构建镜像
 //         stage('Build Image') {
 //             when {
-//                 expression {
-//                     return (buildingTag == "true" )
-//                 }
+//                 buildingTag()
 //             }
 //             steps {
 //                 echo '--------------------- Build Image Start ---------------------'
@@ -202,9 +186,7 @@ pipeline {
 //         // 推送镜像到Harbor
 //         stage('Push to Harbor') {
 //             when {
-//                 expression {
-//                     return (buildingTag == "true" )
-//                 }
+//                 buildingTag()
 //             }
 //             steps {
 //                 echo '--------------------- Push to Harbor Start ---------------------'
@@ -221,9 +203,7 @@ pipeline {
 //         // 部署容器
 //         stage('Deploy') {
 //             when {
-//                 expression {
-//                     return (buildingTag == "true" )
-//                 }
+//                 buildingTag()
 //             }
 //             steps {
 //                 echo '--------------------- Deploy Start ---------------------'
