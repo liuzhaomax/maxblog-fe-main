@@ -73,25 +73,25 @@ pipeline {
                 echo '--------------------- Version End ---------------------'
             }
         }
-        // 语法格式检查
-        stage('Lint') {
-            steps {
-                echo '--------------------- Lint Start ---------------------'
-                script {
-                    timeout(time: 30, unit: "MINUTES"){
-                        npmHome = tool "npm"
-                        sh """
-                            # ${npmHome}/bin/npm install
-                            ${npmHome}/bin/npm install --save-dev eslint
-                            # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
-                            ${npmHome}/bin/npm run lint
-                            ${npmHome}/bin/npm run lint:report
-                        """
-                    }
-                }
-                echo '--------------------- Lint End ---------------------'
-            }
-        }
+//         // 语法格式检查
+//         stage('Lint') {
+//             steps {
+//                 echo '--------------------- Lint Start ---------------------'
+//                 script {
+//                     timeout(time: 30, unit: "MINUTES"){
+//                         npmHome = tool "npm"
+//                         sh """
+//                             # ${npmHome}/bin/npm install
+//                             ${npmHome}/bin/npm install --save-dev eslint
+//                             # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
+//                             ${npmHome}/bin/npm run lint
+//                             ${npmHome}/bin/npm run lint:report
+//                         """
+//                     }
+//                 }
+//                 echo '--------------------- Lint End ---------------------'
+//             }
+//         }
 //         // 构建
 //         stage('Build') {
 //             steps {
