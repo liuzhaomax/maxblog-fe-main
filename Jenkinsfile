@@ -55,7 +55,7 @@ pipeline {
 //             }
             steps {
                 echo '--------------------- Version Start ---------------------'
-                echo 'App Version: ${tag}'
+                echo 'App Version: ' + "${tag}"
                 script {
                     npmHome = tool "npm"
                     sh """
