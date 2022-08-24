@@ -55,21 +55,24 @@ pipeline {
 //             }
             steps {
                 echo '--------------------- Version Start ---------------------'
-                echo 'Version: ${tag}'
-                sh """
-                    export NODE_HOME=${npmHome}
-                    export PATH=\$NODE_HOME/bin:\$PATH
-                    rm -rf server/build
-                    rm -rf node_modules package-lock.json server/node_modules server/package-lock.json
-                    ${npmHome}/bin/npm cache clear --force
-                    ${npmHome}/bin/node --version
-                    ${npmHome}/bin/npm --version
-                """
-                // grep "^go .*" go.mod
-                // cut -f 2 -d
-                // echo go version
-                // 赋予go env sh 执行权限
-                // run set go env sh
+                echo 'App Version: ${tag}'
+                script {
+                    npmHome = tool "npm"
+                    sh """
+                        export NODE_HOME=${npmHome}
+                        export PATH=\$NODE_HOME/bin:\$PATH
+                        rm -rf server/build
+                        rm -rf node_modules package-lock.json server/node_modules server/package-lock.json
+                        ${npmHome}/bin/npm cache clear --force
+                        ${npmHome}/bin/node --version
+                        ${npmHome}/bin/npm --version
+                    """
+                    // grep "^go .*" go.mod
+                    // cut -f 2 -d
+                    // echo go version
+                    // 赋予go env sh 执行权限
+                    // run set go env sh
+                }
                 echo '--------------------- Version End ---------------------'
             }
         }
