@@ -109,6 +109,7 @@ pipeline {
                             export NODE_HOME=${npmHome}
                             export PATH=\$NODE_HOME/bin:\$PATH
                             ${npmHome}/bin/npm install --save react-dev-utils
+                            ${npmHome}/bin/npm install --save fs-extra
                             ${npmHome}/bin/npm run build
                             # ${npmHome}/bin/npm test
                             cd server
