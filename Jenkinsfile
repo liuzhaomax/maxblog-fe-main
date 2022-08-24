@@ -10,7 +10,7 @@ pipeline {
         timestamps() //日志会有时间
         skipDefaultCheckout() //删除隐式checkout scm语句
         disableConcurrentBuilds() //禁止并行
-        timeout(time: 1, unit: 'HOURS') //流水线超市设置1h
+        timeout(time: 1, unit: "HOURS") //流水线超市设置1h
     }
     // 声明全局变量
     environment {
@@ -22,19 +22,19 @@ pipeline {
     // 流水线阶段
     stages {
         // 拉取代码
-        stage('Checkout') {
+        stage("Checkout") {
             steps {
-                echo '--------------------- Checkout Start ---------------------'
+                echo "--------------------- Checkout Start ---------------------"
                 timeout(time: 5, unit: "MINUTES"){
-                    checkout([$class: 'GitSCM', branches: [[name: '${tag}']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/liuzhaomax/maxblog-fe-main.git']]])
+                    checkout([$class: "GitSCM", branches: [[name: "${tag}"]], extensions: [], userRemoteConfigs: [[url: "https://github.com/liuzhaomax/maxblog-fe-main.git"]]])
                 }
-                echo '--------------------- Checkout End ---------------------'
+                echo "--------------------- Checkout End ---------------------"
             }
         }
 //         // 本地github会用到
-//         stage('Update GitHub') {
+//         stage("Update GitHub") {
 //             steps {
-//                 echo '--------------------- Update GitHub Start ---------------------'
+//                 echo "--------------------- Update GitHub Start ---------------------"
 //                 script {
 //                     timeout(time: 20, unit: "MINUTES"){
 //                         sh """
@@ -45,17 +45,17 @@ pipeline {
 //                         // setting commit status
 //                     }
 //                 }
-//                 echo '--------------------- Update GitHub End ---------------------'
+//                 echo "--------------------- Update GitHub End ---------------------"
 //             }
 //         }
         // 检查App版本
-        stage('Version') {
+        stage("Version") {
 //             when {
 //                 buildingTag()
 //             }
             steps {
-                echo '--------------------- Version Start ---------------------'
-                echo 'App Version: ' + "${tag}"
+                echo "--------------------- Version Start ---------------------"
+                echo "App Version: ${tag}"
                 script {
                     npmHome = tool "npm"
                     sh """
@@ -73,13 +73,13 @@ pipeline {
                     // 赋予go env sh 执行权限
                     // run set go env sh
                 }
-                echo '--------------------- Version End ---------------------'
+                echo "--------------------- Version End ---------------------"
             }
         }
 //         // 语法格式检查
-//         stage('Lint') {
+//         stage("Lint") {
 //             steps {
-//                 echo '--------------------- Lint Start ---------------------'
+//                 echo "--------------------- Lint Start ---------------------"
 //                 script {
 //                     timeout(time: 30, unit: "MINUTES"){
 //                         npmHome = tool "npm"
@@ -92,13 +92,13 @@ pipeline {
 //                         """
 //                     }
 //                 }
-//                 echo '--------------------- Lint End ---------------------'
+//                 echo "--------------------- Lint End ---------------------"
 //             }
 //         }
 //         // 构建
-//         stage('Build') {
+//         stage("Build") {
 //             steps {
-//                 echo '--------------------- Build Start ---------------------'
+//                 echo "--------------------- Build Start ---------------------"
 //                 script {
 //                     timeout(time: 20, unit: "MINUTES"){
 //                         npmHome = tool "npm" //变量名npm在jenkins全局工具里定义的
@@ -119,13 +119,13 @@ pipeline {
 //                         // rm -rf 文件名.tar.gz  删除压缩包
 //                     }
 //                 }
-//                 echo '--------------------- Build End ---------------------'
+//                 echo "--------------------- Build End ---------------------"
 //             }
 //         }
 //         // 静态代码分析SonarQube
-//         stage('SonarQube') {
+//         stage("SonarQube") {
 //             steps {
-//                 echo '--------------------- SonarQube Start ---------------------'
+//                 echo "--------------------- SonarQube Start ---------------------"
 //                 script {
 //                     timeout(time: 20, unit: "MINUTES"){
 //                         sonarScannerHome = tool "sonar-scanner"
@@ -142,24 +142,24 @@ pipeline {
 //                         """
 //                     }
 //                 }
-//                 echo '--------------------- SonarQube End ---------------------'
+//                 echo "--------------------- SonarQube End ---------------------"
 //             }
 //         }
 // //         // 安全漏洞扫描Nessus
-// //         stage('Checkmarx') {
+// //         stage("Checkmarx") {
 // //             steps {
-// //                 echo '--------------------- Checkmarx Start ---------------------'
-// //                 echo 'Checkmarx - SUCCESS'
-// //                 echo '--------------------- Checkmarx End ---------------------'
+// //                 echo "--------------------- Checkmarx Start ---------------------"
+// //                 echo "Checkmarx - SUCCESS"
+// //                 echo "--------------------- Checkmarx End ---------------------"
 // //             }
 // //         }
 //         // 构建镜像
-//         stage('Build Image') {
+//         stage("Build Image") {
 //             when {
 //                 buildingTag()
 //             }
 //             steps {
-//                 echo '--------------------- Build Image Start ---------------------'
+//                 echo "--------------------- Build Image Start ---------------------"
 //                 timeout(time: 10, unit: "MINUTES"){
 //                     sh """
 //                         cd server
@@ -167,16 +167,16 @@ pipeline {
 //                         cd ..
 //                     """
 //                 }
-//                 echo '--------------------- Build Image End ---------------------'
+//                 echo "--------------------- Build Image End ---------------------"
 //             }
 //         }
 //         // 推送镜像到Harbor
-//         stage('Push to Harbor') {
+//         stage("Push to Harbor") {
 //             when {
 //                 buildingTag()
 //             }
 //             steps {
-//                 echo '--------------------- Push to Harbor Start ---------------------'
+//                 echo "--------------------- Push to Harbor Start ---------------------"
 //                 timeout(time: 10, unit: "MINUTES"){
 //                     sh """
 //                         docker login -u ${harborUsername} -p ${harborPassword} ${harborAddress}
@@ -184,46 +184,46 @@ pipeline {
 //                         docker push ${harborAddress}/${harborRepo}/${JOB_NAME}:${tag}
 //                     """
 //                 }
-//                 echo '--------------------- Push to Harbor End ---------------------'
+//                 echo "--------------------- Push to Harbor End ---------------------"
 //             }
 //         }
 //         // 部署容器
-//         stage('Deploy') {
+//         stage("Deploy") {
 //             when {
 //                 buildingTag()
 //             }
 //             steps {
-//                 echo '--------------------- Deploy Start ---------------------'
+//                 echo "--------------------- Deploy Start ---------------------"
 //                 timeout(time: 10, unit: "MINUTES"){
-//                     sshPublisher(publishers: [sshPublisherDesc(configName: 'test', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: "sudo deploy.sh $harborAddress $harborRepo $JOB_NAME $tag $container_port $host_port", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+//                     sshPublisher(publishers: [sshPublisherDesc(configName: "test", transfers: [sshTransfer(cleanRemote: false, excludes: "", execCommand: "sudo deploy.sh $harborAddress $harborRepo $JOB_NAME $tag $container_port $host_port", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: "[, ]+", remoteDirectory: "", remoteDirectorySDF: false, removePrefix: "", sourceFiles: "")], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
 //                 }
-//                 echo '--------------------- Deploy End ---------------------'
+//                 echo "--------------------- Deploy End ---------------------"
 //             }
 //         }
     }
     // 构建后的操作
     post {
         always {
-            echo '********************************************************************'
-            echo '********************************************************************'
-            echo '********************* Pipeline about to Finish *********************'
-            echo '********************************************************************'
-            echo '********************************************************************'
+            echo "********************************************************************"
+            echo "********************************************************************"
+            echo "********************* Pipeline about to Finish *********************"
+            echo "********************************************************************"
+            echo "********************************************************************"
             sh "rm -rf ${JOB_NAME} ${JOB_NAME}@tmp"
         }
 
         success {
-            echo 'SUCCESS 成功'
+            echo "SUCCESS 成功"
             sh "docker image prune -f"
         }
 
         failure {
-            echo 'FAILURE 失败'
+            echo "FAILURE 失败"
             error "错误发生，流水线失败"
         }
 
         aborted {
-            echo 'ABORTED 取消'
+            echo "ABORTED 取消"
             error "流水线被终止"
         }
     }
