@@ -48,66 +48,50 @@ pipeline {
 //                 echo '--------------------- Update GitHub End ---------------------'
 //             }
 //         }
-//         // 设置环境，建议跳过
-//         stage('Change Node Version') {
-//             steps {
-//                 echo 'Change Node Version - SUCCESS'
-//             }
-//         }
-//         stage('Change Golang Version') {
-//             steps {
-//                 echo '--------------------- Change Golang Version Start ---------------------'
-//                 script {
-//                     timeout(time: 20, unit: "MINUTES"){
-//                         sh """
-//                             grep "^go .*" go.mod
-//                             cut -f 2 -d
-//                         """
-//                         // echo go version
-//                         // 赋予go env sh 执行权限
-//                         // run set go env sh
-//                     }
-//                 }
-//                 echo '--------------------- Change Golang Version End ---------------------'
-//             }
-//         }
         // 检查App版本
-        stage('App Version') {
-            when {
-                tag "v*"
-            }
+        stage('Version') {
+//             when {
+//                 buildingTag()
+//             }
             steps {
-                echo '--------------------- App Version Start ---------------------'
-                echo 'App Version: ${tag}'
-                echo '--------------------- App Version End ---------------------'
+                echo '--------------------- Version Start ---------------------'
+                echo 'Version: ${tag}'
+                sh """
+                    export NODE_HOME=${npmHome}
+                    export PATH=\$NODE_HOME/bin:\$PATH
+                    rm -rf server/build
+                    rm -rf node_modules package-lock.json server/node_modules server/package-lock.json
+                    ${npmHome}/bin/npm cache clear --force
+                    ${npmHome}/bin/node --version
+                    ${npmHome}/bin/npm --version
+                """
+                // grep "^go .*" go.mod
+                // cut -f 2 -d
+                // echo go version
+                // 赋予go env sh 执行权限
+                // run set go env sh
+                echo '--------------------- Version End ---------------------'
             }
         }
-//         // 语法格式检查
-//         stage('Lint') {
-//             steps {
-//                 echo '--------------------- Lint Start ---------------------'
-//                 script {
-//                     timeout(time: 30, unit: "MINUTES"){
-//                         npmHome = tool "npm"
-//                         sh """
-//                             export NODE_HOME=${npmHome}
-//                             export PATH=\$NODE_HOME/bin:\$PATH
-//                             rm -rf server/build
-//                             rm -rf node_modules package-lock.json server/node_modules server/package-lock.json
-//                             ${npmHome}/bin/npm cache clear --force
-//                             ${npmHome}/bin/node --version
-//                             ${npmHome}/bin/npm --version
-//                             # ${npmHome}/bin/npm install
-//                             ${npmHome}/bin/npm install --save-dev eslint
-//                             # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
-//                             ${npmHome}/bin/npm run lint
-//                             ${npmHome}/bin/npm run lint:report
-//                         """
-//                     }
-//                 }
-//                 echo '--------------------- Lint End ---------------------'
-//             }
-//         }
+        // 语法格式检查
+        stage('Lint') {
+            steps {
+                echo '--------------------- Lint Start ---------------------'
+                script {
+                    timeout(time: 30, unit: "MINUTES"){
+                        npmHome = tool "npm"
+                        sh """
+                            # ${npmHome}/bin/npm install
+                            ${npmHome}/bin/npm install --save-dev eslint
+                            # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
+                            ${npmHome}/bin/npm run lint
+                            ${npmHome}/bin/npm run lint:report
+                        """
+                    }
+                }
+                echo '--------------------- Lint End ---------------------'
+            }
+        }
 //         // 构建
 //         stage('Build') {
 //             steps {
