@@ -67,7 +67,6 @@ pipeline {
                         ${npmHome}/bin/node --version
                         # ${npmHome}/bin/npm install -g npm@6
                         ${npmHome}/bin/npm --version
-                        ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
                     """
                     // grep "^go .*" go.mod
                     // cut -f 2 -d
@@ -88,6 +87,7 @@ pipeline {
                         sh """
                             export NODE_HOME=${npmHome}
                             export PATH=\$NODE_HOME/bin:\$PATH
+                            ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
                             ${npmHome}/bin/npm install
                             # ${npmHome}/bin/npm install --save-dev eslint
                             # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
