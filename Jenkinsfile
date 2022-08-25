@@ -87,7 +87,7 @@ pipeline {
                         sh """
                             export NODE_HOME=${npmHome}
                             export PATH=\$NODE_HOME/bin:\$PATH
-                            ${npmHome}/bin/npm install
+                            ${npmHome}/bin/npm ci
                             # ${npmHome}/bin/npm install --save-dev eslint
                             # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
                             ${npmHome}/bin/npm run lint
