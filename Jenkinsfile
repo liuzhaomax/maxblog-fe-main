@@ -66,7 +66,6 @@ pipeline {
                         ${npmHome}/bin/npm cache clear --force
                         ${npmHome}/bin/node --version
                         ${npmHome}/bin/npm --version
-                        ${npmHome}/bin/npm install -g npm@6
                     """
                     // grep "^go .*" go.mod
                     // cut -f 2 -d
@@ -88,14 +87,13 @@ pipeline {
                             export NODE_HOME=${npmHome}
                             export PATH=\$NODE_HOME/bin:\$PATH
                             ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
-                            # ${npmHome}/bin/npm install
+                            ${npmHome}/bin/npm install
                             # ${npmHome}/bin/npm i --package-lock-only
                             # ${npmHome}/bin/npm ci
-                            ${npmHome}/bin/npm install --save-dev eslint
-                            ${npmHome}/bin/npm install --save-dev eslint-plugin-react
+                            # ${npmHome}/bin/npm install -g npm@6
+                            # ${npmHome}/bin/npm install --save-dev eslint
+                            # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
                             ${npmHome}/bin/npm run lint
-                            ${npmHome}/bin/npm install -g npm@8.11.0
-                            ${npmHome}/bin/npm install
                             # ${npmHome}/bin/npm run lint:report
                         """
                     }
