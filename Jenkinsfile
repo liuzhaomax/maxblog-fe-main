@@ -87,8 +87,7 @@ pipeline {
                         sh """
                             export NODE_HOME=${npmHome}
                             export PATH=\$NODE_HOME/bin:\$PATH
-                            ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
-                            ${npmHome}/bin/npm i --package-lock-only
+                            # ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
                             ${npmHome}/bin/npm ci
                             # ${npmHome}/bin/npm install --save-dev eslint
                             # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
