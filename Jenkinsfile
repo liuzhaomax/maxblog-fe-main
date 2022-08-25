@@ -63,6 +63,7 @@ pipeline {
                         export PATH=\$NODE_HOME/bin:\$PATH
                         rm -rf server/build
                         rm -rf node_modules package-lock.json server/node_modules server/package-lock.json
+                        ${npmHome}/bin/npm config set registry http://www.npmjs.org
                         ${npmHome}/bin/npm cache clear --force
                         ${npmHome}/bin/node --version
                         ${npmHome}/bin/npm install -g npm@6
@@ -87,7 +88,6 @@ pipeline {
                         sh """
                             export NODE_HOME=${npmHome}
                             export PATH=\$NODE_HOME/bin:\$PATH
-                            ${npmHome}/bin/npm config set registry http://www.npmjs.org
                             ${npmHome}/bin/npm install
                             # ${npmHome}/bin/npm install --save-dev eslint
                             # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
