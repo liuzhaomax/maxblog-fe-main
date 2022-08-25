@@ -50,9 +50,6 @@ pipeline {
 //         }
         // 检查App版本
         stage("Version") {
-//             when {
-//                 buildingTag()
-//             }
             steps {
                 echo "--------------------- Version Start ---------------------"
                 echo "App Version: ${tag}"
@@ -215,7 +212,7 @@ pipeline {
             echo "********************* Pipeline about to Finish *********************"
             echo "********************************************************************"
             echo "********************************************************************"
-            sh "rm -rf ${JOB_NAME} ${JOB_NAME}@tmp"
+//             sh "rm -rf ${JOB_NAME} ${JOB_NAME}@tmp"
         }
 
         success {
