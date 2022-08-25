@@ -94,7 +94,8 @@ pipeline {
                             ${npmHome}/bin/npm install --save-dev eslint-plugin-react
                             ${npmHome}/bin/npm run lint
                             ${npmHome}/bin/npm install -g npm@8.11.0
-                            ${npmHome}/bin/npm install
+                            ${npmHome}/bin/npm i --package-lock-only
+                            ${npmHome}/bin/npm ci
                             # ${npmHome}/bin/npm run lint:report
                         """
                     }
