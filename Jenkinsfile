@@ -67,7 +67,7 @@ pipeline {
                         ${npmHome}/bin/node --version
                         # ${npmHome}/bin/npm install -g npm@6
                         ${npmHome}/bin/npm --version
-                        ${npmHome}/bin/npm set registry https://registry.npmjs.org/
+                        ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
                     """
                     // grep "^go .*" go.mod
                     // cut -f 2 -d
