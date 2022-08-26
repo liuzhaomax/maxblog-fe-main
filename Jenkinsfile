@@ -198,10 +198,10 @@ pipeline {
                 echo "--------------------- Deploy Start ---------------------"
                 timeout(time: 10, unit: "MINUTES"){
                     sh """
-                        sudo mv deploy.sh /usr/bin
-                        sudo chmod +x /usr/bin/deploy.sh
+                        mv deploy.sh /usr/bin
+                        chmod +x /usr/bin/deploy.sh
                     """
-                    sshPublisher(publishers: [sshPublisherDesc(configName: "test", transfers: [sshTransfer(cleanRemote: false, excludes: "", execCommand: "sudo deploy.sh $harborAddress $harborRepo $JOB_NAME $tag $container_port $host_port", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: "[, ]+", remoteDirectory: "", remoteDirectorySDF: false, removePrefix: "", sourceFiles: "")], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                    sshPublisher(publishers: [sshPublisherDesc(configName: "test", transfers: [sshTransfer(cleanRemote: false, excludes: "", execCommand: "deploy.sh $harborAddress $harborRepo $JOB_NAME $tag $container_port $host_port", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: "[, ]+", remoteDirectory: "", remoteDirectorySDF: false, removePrefix: "", sourceFiles: "")], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
                 }
                 echo "--------------------- Deploy End ---------------------"
             }
@@ -217,8 +217,8 @@ pipeline {
             echo "********************************************************************"
             sh """
                 cd ..
-                sudo rm -rf ${JOB_NAME}
-                sudo rm -rf ${JOB_NAME}@tmp
+                rm -rf ${JOB_NAME}
+                rm -rf ${JOB_NAME}@tmp
             """
         }
 
