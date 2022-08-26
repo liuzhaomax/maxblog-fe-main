@@ -84,9 +84,9 @@ pipeline {
                             export NODE_HOME=${npmHome}
                             export PATH=\$NODE_HOME/bin:\$PATH
                             ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
-                            # ${npmHome}/bin/npm install --max_old_space_size=3096
-                            ${npmHome}/bin/npm i --package-lock-only --max_old_space_size=3096
-                            ${npmHome}/bin/npm ci --max_old_space_size=3096
+                            # ${npmHome}/bin/npm install --max_old_space_size=512
+                            ${npmHome}/bin/npm i --package-lock-only --max_old_space_size=512
+                            ${npmHome}/bin/npm ci --max_old_space_size=512
                             # ${npmHome}/bin/npm install -g npm@6
                             # ${npmHome}/bin/npm install --save-dev eslint
                             # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
@@ -111,7 +111,7 @@ pipeline {
                             ${npmHome}/bin/npm run build
                             # ${npmHome}/bin/npm test
                             cd server
-                            ${npmHome}/bin/npm install --max_old_space_size=3096
+                            ${npmHome}/bin/npm install --max_old_space_size=512
                             cd ..
                         """
                         // tar -zcvf 文件名.tar.gz 打包
