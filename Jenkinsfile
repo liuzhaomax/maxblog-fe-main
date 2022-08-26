@@ -109,7 +109,6 @@ pipeline {
                             export NODE_HOME=${npmHome}
                             export PATH=\$NODE_HOME/bin:\$PATH
                             ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
-                            ${npmHome}/bin/npm install -g npm@6
                             ${npmHome}/bin/npm run build
                             # ${npmHome}/bin/npm test
                             cd server
