@@ -16,7 +16,7 @@ pipeline {
     environment {
         harborUsername = "admin"
         harborPassword = "Harbor12345"
-        harborAddress = "10.192.0.4:9002"
+        harborAddress = "10.192.0.5:9002"
         harborRepo = "repo"
     }
     // 流水线阶段
