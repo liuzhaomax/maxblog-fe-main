@@ -213,11 +213,13 @@ pipeline {
             echo "********************* Pipeline about to Finish *********************"
             echo "********************************************************************"
             echo "********************************************************************"
-            sh """
-                cd ..
-                rm -rf ${JOB_NAME}
-                rm -rf ${JOB_NAME}@tmp
-            """
+            script {
+                sh """
+                    cd ..
+                    rm -rf ${JOB_NAME}
+                    rm -rf ${JOB_NAME}@tmp
+                """
+            }
         }
 
         success {
