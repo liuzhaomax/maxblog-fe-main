@@ -1,7 +1,5 @@
 //#!groovy
 
-// String buildShell = "${env.buildShell}"
-
 pipeline {
     // 指定集群节点
     agent any
@@ -149,7 +147,7 @@ pipeline {
                 echo "--------------------- SonarQube End ---------------------"
             }
         }
-//         // 安全漏洞扫描Nessus
+//         // 安全漏洞扫描Checkmarx
 //         stage("Checkmarx") {
 //             steps {
 //                 echo "--------------------- Checkmarx Start ---------------------"
@@ -159,9 +157,9 @@ pipeline {
 //         }
         // 构建镜像
         stage("Build Image") {
-            when {
-                buildingTag()
-            }
+//             when {
+//                 buildingTag()
+//             }
             steps {
                 echo "--------------------- Build Image Start ---------------------"
                 timeout(time: 10, unit: "MINUTES"){
@@ -176,9 +174,9 @@ pipeline {
         }
         // 推送镜像到Harbor
         stage("Push to Harbor") {
-            when {
-                buildingTag()
-            }
+//             when {
+//                 buildingTag()
+//             }
             steps {
                 echo "--------------------- Push to Harbor Start ---------------------"
                 timeout(time: 10, unit: "MINUTES"){
@@ -193,9 +191,9 @@ pipeline {
         }
         // 部署容器
         stage("Deploy") {
-            when {
-                buildingTag()
-            }
+//             when {
+//                 buildingTag()
+//             }
             steps {
                 echo "--------------------- Deploy Start ---------------------"
                 timeout(time: 10, unit: "MINUTES"){
