@@ -210,7 +210,6 @@ pipeline {
                     sh """
                         cd ..
                         rm -rf ${JOB_NAME}
-                        rm -rf ${JOB_NAME}@tmp
                     """
                 }
                 echo "--------------------- Clean End ---------------------"
