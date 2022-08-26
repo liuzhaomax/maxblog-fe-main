@@ -137,7 +137,7 @@ pipeline {
                             ${sonarScannerHome}/bin/sonar-scanner \
                                 -Dsonar.sources=./ \
                                 -Dsonar.projectname=${JOB_NAME} \
-                                -Dsonar.login=8ed4baf9ba0204179095df34597c503c4b857b8a \
+                                -Dsonar.login=5cbe5f7092c9a2b8168d610c8efee1dfe938a6ad \
                                 -Dsonar.projectKey=${JOB_NAME} \
                                 -Dsonar.nodejs.executable=/usr/bin/node \
                                 -Dsonar.inclusions=src/**/*.js,src/**/*.jsx \
