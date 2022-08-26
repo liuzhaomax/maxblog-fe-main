@@ -84,7 +84,7 @@ pipeline {
                             export NODE_HOME=${npmHome}
                             export PATH=\$NODE_HOME/bin:\$PATH
                             ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
-                            ${npmHome}/bin/npm install
+                            ${npmHome}/bin/npm install --max_old_space_size=2048
                             # ${npmHome}/bin/npm i --package-lock-only
                             # ${npmHome}/bin/npm ci
                             # ${npmHome}/bin/npm install -g npm@6
