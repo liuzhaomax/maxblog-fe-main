@@ -206,7 +206,7 @@ pipeline {
         stage("Clean") {
             steps {
                 echo "--------------------- Clean Start ---------------------"
-                timeout(time: 5, unit: "MINUTES"){
+                timeout(time: 10, unit: "MINUTES"){
                     sh """
                         cd ..
                         rm -rf ${JOB_NAME}
