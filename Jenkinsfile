@@ -78,7 +78,7 @@ pipeline {
             steps {
                 echo "--------------------- Lint Start ---------------------"
                 script {
-                    timeout(time: 30, unit: "MINUTES"){
+                    timeout(time: 15, unit: "MINUTES"){
                         npmHome = tool "npm"
                         sh """
                             export NODE_HOME=${npmHome}
@@ -103,15 +103,15 @@ pipeline {
             steps {
                 echo "--------------------- Build Start ---------------------"
                 script {
-                    timeout(time: 20, unit: "MINUTES"){
+                    timeout(time: 15, unit: "MINUTES"){
                         npmHome = tool "npm" //变量名npm在jenkins全局工具里定义的
                         sh """
                             export NODE_HOME=${npmHome}
                             export PATH=\$NODE_HOME/bin:\$PATH
-                            ${npmHome}/bin/npm run build
+                            ${npmHome}/bin/npm run build --max_old_space_size=2048
                             # ${npmHome}/bin/npm test
                             cd server
-                            ${npmHome}/bin/npm install
+                            ${npmHome}/bin/npm install --max_old_space_size=2048
                             cd ..
                         """
                         // tar -zcvf 文件名.tar.gz 打包
