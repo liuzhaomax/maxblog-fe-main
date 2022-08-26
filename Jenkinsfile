@@ -206,6 +206,20 @@ pipeline {
                 echo "--------------------- Deploy End ---------------------"
             }
         }
+        // 清理checkout的文件
+        stage("Clean") {
+            steps {
+                echo "--------------------- Clean Start ---------------------"
+                timeout(time: 5, unit: "MINUTES"){
+                    sh """
+                        cd ..
+                        rm -rf ${JOB_NAME}
+                        rm -rf ${JOB_NAME}@tmp
+                    """
+                }
+                echo "--------------------- Clean End ---------------------"
+            }
+        }
     }
     // 构建后的操作
     post {
@@ -215,11 +229,6 @@ pipeline {
             echo "********************* Pipeline about to Finish *********************"
             echo "********************************************************************"
             echo "********************************************************************"
-            sh """
-                cd ..
-                rm -rf ${JOB_NAME}
-                rm -rf ${JOB_NAME}@tmp
-            """
         }
 
         success {
