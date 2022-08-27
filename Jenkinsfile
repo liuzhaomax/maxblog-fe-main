@@ -158,7 +158,7 @@ pipeline {
         // 构建镜像
         stage("Build Image") {
             when {
-                buildingTag()
+                tag "v*"
             }
             steps {
                 echo "--------------------- Build Image Start ---------------------"
@@ -175,7 +175,7 @@ pipeline {
         // 推送镜像到Harbor
         stage("Push to Harbor") {
             when {
-                buildingTag()
+                tag "v*"
             }
             steps {
                 echo "--------------------- Push to Harbor Start ---------------------"
@@ -192,7 +192,7 @@ pipeline {
         // 部署容器
         stage("Deploy") {
             when {
-                buildingTag()
+                tag "v*"
             }
             steps {
                 echo "--------------------- Deploy Start ---------------------"
