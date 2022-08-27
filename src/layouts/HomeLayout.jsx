@@ -60,7 +60,7 @@ function HomeLayout() {
             <section id="parallax-compo">
                 <img id="sky" src={bgSky} alt="sky img" data-depth="0.03" />
                 <img id="back-rock" src={bgBackRock} alt="back rock img" data-depth=".05" />
-                <h4 id="slogan1" data-depth="0">配置CI/CD DevOps流程的微服务架构Web应用</h4>
+                <h4 id="slogan1" data-depth="0">配置DevOps流程的微服务架构Web应用</h4>
                 <div id="slogan2" data-depth="0">
                     <img src="https://img.shields.io/badge/Golang-00a7d0?style=flat-square&logo=go&logoColor=white" alt="go"/>
                     <img src="https://img.shields.io/badge/-JavaScript-red?style=flat-square&logo=javascript&logoColor=white" alt="js"/>
