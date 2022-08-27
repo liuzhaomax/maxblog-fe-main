@@ -138,6 +138,7 @@ pipeline {
                             projectKey = projectKey + "_" + strArr[i]
                         }
                         strArr = projectKey.split("%2F")
+                        projectKey = strArr[0]
                         for (int i = 1; i < strArr.size(); i++) {
                             projectKey = projectKey + "_" + strArr[i]
                         }
