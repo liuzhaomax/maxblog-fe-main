@@ -131,9 +131,12 @@ pipeline {
                 script {
                     timeout(time: 20, unit: "MINUTES"){
                         sonarScannerHome = tool "sonar-scanner"
-                        String[] str;
-                        str = JOB_NAME.split("/");
-                        projectKey = str[0] + "_" + str[1]
+                        String[] str
+                        str = JOB_NAME.split("/")
+                        String projectKey = str[0]
+                        for(int i = 1; i < str.length(); i++) {
+                            projectKey = projectKey + "_" + str[i]
+                        }
                         sh """
                             ${sonarScannerHome}/bin/sonar-scanner \
                                 -Dsonar.sources=./ \
@@ -164,7 +167,7 @@ pipeline {
         always {
             echo "********************************************************************"
             echo "********************************************************************"
-            echo "********************* Pipeline about to Finish *********************"
+            echo "****************** CI Pipeline about to Finish *********************"
             echo "********************************************************************"
             echo "********************************************************************"
         }
