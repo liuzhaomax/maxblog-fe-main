@@ -1,0 +1,5 @@
+.demo-card-picture {
+    width: 400px;
+    break-inside: avoid;
+    margin-bottom: 20px;
+}
