@@ -134,7 +134,7 @@ pipeline {
                         String[] strArr
                         strArr = JOB_NAME.split("/")
                         String projectKey = strArr[0]
-                        for(int i = 1; i < strArr.length; i++) {
+                        for (int i = 1; i < strArr.size(); i++) {
                             projectKey = projectKey + "_" + strArr[i]
                         }
                         sh """
