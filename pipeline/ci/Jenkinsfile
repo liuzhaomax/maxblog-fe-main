@@ -20,15 +20,15 @@ pipeline {
     // 流水线阶段
     stages {
         // 拉取代码
-        stage("Checkout") {
-            steps {
-                echo "--------------------- Checkout Start ---------------------"
-                timeout(time: 5, unit: "MINUTES"){
-                    checkout poll: false, scm: [$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/liuzhaomax/maxblog-fe-main.git']]]
-                }
-                echo "--------------------- Checkout End ---------------------"
-            }
-        }
+//         stage("Checkout") {
+//             steps {
+//                 echo "--------------------- Checkout Start ---------------------"
+//                 timeout(time: 5, unit: "MINUTES"){
+//                     checkout poll: false, scm: [$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/liuzhaomax/maxblog-fe-main.git']]]
+//                 }
+//                 echo "--------------------- Checkout End ---------------------"
+//             }
+//         }
 //         // 本地github会用到
 //         stage("Update GitHub") {
 //             steps {
@@ -47,83 +47,83 @@ pipeline {
 //             }
 //         }
         // 检查App版本
-        stage("Version") {
-            steps {
-                echo "--------------------- Version Start ---------------------"
-                echo "Branch: ${JOB_NAME}"
-                script {
-                    npmHome = tool "npm"
-                    sh """
-                        export NODE_HOME=${npmHome}
-                        export PATH=\$NODE_HOME/bin:\$PATH
-                        rm -rf server/build
-                        rm -rf node_modules package-lock.json server/node_modules server/package-lock.json
-                        ${npmHome}/bin/npm cache clear --force
-                        ${npmHome}/bin/node --version
-                        ${npmHome}/bin/npm --version
-                    """
-                    // grep "^go .*" go.mod
-                    // cut -f 2 -d
-                    // echo go version
-                    // 赋予go env sh 执行权限
-                    // run set go env sh
-                }
-                echo "--------------------- Version End ---------------------"
-            }
-        }
-        // 语法格式检查
-        stage("Lint") {
-            steps {
-                echo "--------------------- Lint Start ---------------------"
-                script {
-                    timeout(time: 15, unit: "MINUTES"){
-                        npmHome = tool "npm"
-                        sh """
-                            export NODE_HOME=${npmHome}
-                            export PATH=\$NODE_HOME/bin:\$PATH
-                            ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
-                            # ${npmHome}/bin/npm install --max_old_space_size=1024
-                            ${npmHome}/bin/npm i --package-lock-only --max_old_space_size=1024
-                            ${npmHome}/bin/npm ci --max_old_space_size=1024
-                            # ${npmHome}/bin/npm install -g npm@6
-                            # ${npmHome}/bin/npm install --save-dev eslint
-                            # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
-                            ${npmHome}/bin/npm run lint
-                            # ${npmHome}/bin/npm run lint:report
-                        """
-                    }
-                }
-                echo "--------------------- Lint End ---------------------"
-            }
-        }
-        // 构建
-        stage("Build") {
-            steps {
-                echo "--------------------- Build Start ---------------------"
-                script {
-                    timeout(time: 15, unit: "MINUTES"){
-                        npmHome = tool "npm" //变量名npm在jenkins全局工具里定义的
-                        sh """
-                            export NODE_HOME=${npmHome}
-                            export PATH=\$NODE_HOME/bin:\$PATH
-                            ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
-                            ${npmHome}/bin/npm run build
-                            # ${npmHome}/bin/npm test
-                            cd server
-                            ${npmHome}/bin/npm install --max_old_space_size=1024
-                            cd ..
-                        """
-                        // tar -zcvf 文件名.tar.gz 打包
-                        // cd到别处
-                        // rm -rf *
-                        // mv 路径/server/文件名.tar.gz ./
-                        // tar -zxvf 文件名.tar.gz -C ./  解压缩
-                        // rm -rf 文件名.tar.gz  删除压缩包
-                    }
-                }
-                echo "--------------------- Build End ---------------------"
-            }
-        }
+//         stage("Version") {
+//             steps {
+//                 echo "--------------------- Version Start ---------------------"
+//                 echo "Branch: ${JOB_NAME}"
+//                 script {
+//                     npmHome = tool "npm"
+//                     sh """
+//                         export NODE_HOME=${npmHome}
+//                         export PATH=\$NODE_HOME/bin:\$PATH
+//                         rm -rf server/build
+//                         rm -rf node_modules package-lock.json server/node_modules server/package-lock.json
+//                         ${npmHome}/bin/npm cache clear --force
+//                         ${npmHome}/bin/node --version
+//                         ${npmHome}/bin/npm --version
+//                     """
+//                     // grep "^go .*" go.mod
+//                     // cut -f 2 -d
+//                     // echo go version
+//                     // 赋予go env sh 执行权限
+//                     // run set go env sh
+//                 }
+//                 echo "--------------------- Version End ---------------------"
+//             }
+//         }
+//         // 语法格式检查
+//         stage("Lint") {
+//             steps {
+//                 echo "--------------------- Lint Start ---------------------"
+//                 script {
+//                     timeout(time: 15, unit: "MINUTES"){
+//                         npmHome = tool "npm"
+//                         sh """
+//                             export NODE_HOME=${npmHome}
+//                             export PATH=\$NODE_HOME/bin:\$PATH
+//                             ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
+//                             # ${npmHome}/bin/npm install --max_old_space_size=1024
+//                             ${npmHome}/bin/npm i --package-lock-only --max_old_space_size=1024
+//                             ${npmHome}/bin/npm ci --max_old_space_size=1024
+//                             # ${npmHome}/bin/npm install -g npm@6
+//                             # ${npmHome}/bin/npm install --save-dev eslint
+//                             # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
+//                             ${npmHome}/bin/npm run lint
+//                             # ${npmHome}/bin/npm run lint:report
+//                         """
+//                     }
+//                 }
+//                 echo "--------------------- Lint End ---------------------"
+//             }
+//         }
+//         // 构建
+//         stage("Build") {
+//             steps {
+//                 echo "--------------------- Build Start ---------------------"
+//                 script {
+//                     timeout(time: 15, unit: "MINUTES"){
+//                         npmHome = tool "npm" //变量名npm在jenkins全局工具里定义的
+//                         sh """
+//                             export NODE_HOME=${npmHome}
+//                             export PATH=\$NODE_HOME/bin:\$PATH
+//                             ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
+//                             ${npmHome}/bin/npm run build
+//                             # ${npmHome}/bin/npm test
+//                             cd server
+//                             ${npmHome}/bin/npm install --max_old_space_size=1024
+//                             cd ..
+//                         """
+//                         // tar -zcvf 文件名.tar.gz 打包
+//                         // cd到别处
+//                         // rm -rf *
+//                         // mv 路径/server/文件名.tar.gz ./
+//                         // tar -zxvf 文件名.tar.gz -C ./  解压缩
+//                         // rm -rf 文件名.tar.gz  删除压缩包
+//                     }
+//                 }
+//                 echo "--------------------- Build End ---------------------"
+//             }
+//         }
         // 静态代码分析SonarQube
         stage("SonarQube") {
             steps {
