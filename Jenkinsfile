@@ -15,7 +15,7 @@ pipeline {
         harborUsername = "admin"
         harborPassword = "Harbor12345"
         harborAddress = "10.192.0.5:9002"
-        harborRepo = "repo"
+        harborRepo = "maxblog-fe-main"
     }
     // 流水线阶段
     stages {
@@ -157,9 +157,9 @@ pipeline {
 //         }
         // 构建镜像
         stage("Build Image") {
-//             when {
-//                 buildingTag()
-//             }
+            when {
+                buildingTag()
+            }
             steps {
                 echo "--------------------- Build Image Start ---------------------"
                 timeout(time: 10, unit: "MINUTES"){
@@ -174,9 +174,9 @@ pipeline {
         }
         // 推送镜像到Harbor
         stage("Push to Harbor") {
-//             when {
-//                 buildingTag()
-//             }
+            when {
+                buildingTag()
+            }
             steps {
                 echo "--------------------- Push to Harbor Start ---------------------"
                 timeout(time: 10, unit: "MINUTES"){
@@ -191,9 +191,9 @@ pipeline {
         }
         // 部署容器
         stage("Deploy") {
-//             when {
-//                 buildingTag()
-//             }
+            when {
+                buildingTag()
+            }
             steps {
                 echo "--------------------- Deploy Start ---------------------"
                 timeout(time: 10, unit: "MINUTES"){
