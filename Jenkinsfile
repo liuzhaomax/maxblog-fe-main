@@ -23,6 +23,7 @@ pipeline {
         stage("Checkout") {
             steps {
                 echo "--------------------- Checkout Start ---------------------"
+                echo "${TAG_NAME}"
                 timeout(time: 5, unit: "MINUTES"){
                     checkout([$class: "GitSCM", branches: [[name: "${tag}"]], extensions: [], userRemoteConfigs: [[url: "https://github.com/liuzhaomax/maxblog-fe-main.git"]]])
                 }
