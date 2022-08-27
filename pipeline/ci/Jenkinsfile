@@ -131,12 +131,15 @@ pipeline {
                 script {
                     timeout(time: 20, unit: "MINUTES"){
                         sonarScannerHome = tool "sonar-scanner"
+                        String[] str;
+                        str = JOB_NAME.split("/");
+                        projectKey = str[0] + "_" + str[1]
                         sh """
                             ${sonarScannerHome}/bin/sonar-scanner \
                                 -Dsonar.sources=./ \
                                 -Dsonar.projectname=${JOB_NAME} \
                                 -Dsonar.login=5cbe5f7092c9a2b8168d610c8efee1dfe938a6ad \
-                                -Dsonar.projectKey=${JOB_NAME} \
+                                -Dsonar.projectKey=${projectKey} \
                                 -Dsonar.nodejs.executable=/usr/bin/node \
                                 -Dsonar.inclusions=src/**/*.js,src/**/*.jsx \
                                 -Dsonar.coverage.exclusions=node_modules/**/*,server/build/**/*,config/**/*,scripts/**/*,public/**/*,src/config/**/*,src/app/**/*,src/assets/**/*,src/env/**/*,src/index.js \
