@@ -16,7 +16,6 @@ pipeline {
         harborPassword = "Harbor12345"
         harborAddress = "10.192.0.5:9002"
         harborRepo = "maxblog-fe-main"
-        GIT_TAG = sh(returnStdout: true, script: "git describe --always").trim()
     }
     // 流水线阶段
     stages {
@@ -158,9 +157,6 @@ pipeline {
 //         }
         // 构建镜像
         stage("Build Image") {
-            when {
-                buildingTag()
-            }
             steps {
                 echo "--------------------- Build Image Start ---------------------"
                 timeout(time: 10, unit: "MINUTES"){
@@ -175,9 +171,6 @@ pipeline {
         }
         // 推送镜像到Harbor
         stage("Push to Harbor") {
-            when {
-                buildingTag()
-            }
             steps {
                 echo "--------------------- Push to Harbor Start ---------------------"
                 timeout(time: 10, unit: "MINUTES"){
@@ -192,9 +185,6 @@ pipeline {
         }
         // 部署容器
         stage("Deploy") {
-            when {
-                buildingTag()
-            }
             steps {
                 echo "--------------------- Deploy Start ---------------------"
                 timeout(time: 10, unit: "MINUTES"){
