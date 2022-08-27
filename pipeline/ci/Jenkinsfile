@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo "--------------------- Checkout Start ---------------------"
                 timeout(time: 5, unit: "MINUTES"){
-                    checkout poll: false, scm: [$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/liuzhaomax/maxblog-fe-main.git']]]
+                    checkout poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/main */feature */foundation */release']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/liuzhaomax/maxblog-fe-main.git']]]
                 }
                 echo "--------------------- Checkout End ---------------------"
             }
