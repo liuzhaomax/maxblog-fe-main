@@ -7,6 +7,7 @@ const logger = require("morgan")
 const debug = require("debug")("my-application")
 
 const app = express()
+app.disable("x-powered-by")
 
 app.engine("html", ejs.renderFile)
     .set("views", path.resolve(__dirname, "./build"))
@@ -32,6 +33,6 @@ router.get("/", (req, res, next) => {
 app.use("/", router)
 
 app.listen(80, (req, res) => {
-    console.log("Server for users running on 80.")
+    console.log("Server fe-main running on 80.")
     debug()
 })
