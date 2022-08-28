@@ -1,12 +1,5 @@
 //#!groovy
 
-String payload = "${payload}"
-def jsonObject = readJSON text: payload
-String gitHash = "${jsonObject.pull_request.head.sha}"
-
-String buildUrl = "${BUILD_URL}"
-String gitStatusPostUrl = " https://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:x-oauth-basic@api.github.com/repos/liuzhaomax/maxblog-fe-main/statuses/${gitHash}"
-
 pipeline {
     // 指定集群节点
     agent any
@@ -187,25 +180,16 @@ pipeline {
         success {
             echo "SUCCESS 成功"
             sh "docker image prune -f"
-            sh """
-                curl -X POST -H "application/json" -d '{"state":"success", "target_url":"${buildUrl}", "description":"构建成功", "context" :"build/job"}' "${gitStatusPostUrl}"
-            """
         }
 
         failure {
             echo "FAILURE 失败"
             error "错误发生，流水线失败"
-            sh """
-                curl -X POST -H "application/json" -d '{"state":"failure", "target_url":"${buildUrl}", "description":"构建失败", "context" :"build/job"}' "${gitStatusPostUrl}"
-            """
         }
 
         aborted {
             echo "ABORTED 取消"
             error "流水线被终止"
-            sh """
-                curl -X POST -H "application/json" -d '{"state":"aborted", "target_url":"${buildUrl}", "description":"构建终止", "context" :"build/job"}' "${gitStatusPostUrl}"
-            """
         }
     }
 }
