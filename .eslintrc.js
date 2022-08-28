@@ -28,7 +28,9 @@ module.exports = {
         "server",
         "scripts",
         "test",
-        "jestGlobalSetup.js"
+        "jestGlobalSetup.js",
+        "sonar-scanner.properties",
+        "pipeline/**/*"
     ],
     "rules": {
         "indent": [
