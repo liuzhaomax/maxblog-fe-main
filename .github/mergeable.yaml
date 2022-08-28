@@ -1,0 +1,15 @@
+version: 2
+mergeable:
+  - when: pull_request.*
+    validate:
+      - do: label
+        and:
+          - must_include:
+              regex: "No Toggle|Has Toggle"
+              message: "Needs Toggle label"
+          - must_include:
+              regex: "No PenSec|Needs PenSec"
+              message: "Needs PenSec label"
+        must_exclude:
+          regex: "DO NOT MERGE!"
+          message: "PR not ready to be merged!"

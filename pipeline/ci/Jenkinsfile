@@ -131,11 +131,16 @@ pipeline {
                 script {
                     timeout(time: 20, unit: "MINUTES"){
                         sonarScannerHome = tool "sonar-scanner"
-                        String[] str
-                        str = JOB_NAME.split("/")
-                        String projectKey = str[0]
-                        for(int i = 1; i < str.length(); i++) {
-                            projectKey = projectKey + "_" + str[i]
+                        String[] strArr
+                        strArr = JOB_NAME.split("/")
+                        String projectKey = strArr[0]
+                        for (int i = 1; i < strArr.size(); i++) {
+                            projectKey = projectKey + "_" + strArr[i]
+                        }
+                        strArr = projectKey.split("%2F")
+                        projectKey = strArr[0]
+                        for (int i = 1; i < strArr.size(); i++) {
+                            projectKey = projectKey + "_" + strArr[i]
                         }
                         sh """
                             ${sonarScannerHome}/bin/sonar-scanner \
