@@ -1,4 +1,4 @@
-import {getContributors} from "../handlers"
+import {getContributors} from "./handlers"
 import axios from "axios"
 
 jest.mock("axios")
