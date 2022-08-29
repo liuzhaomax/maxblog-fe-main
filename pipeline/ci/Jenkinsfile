@@ -153,8 +153,8 @@ pipeline {
                                 -Dsonar.test.inclusions=**/__tests__/* \
                                 -Dsonar.coverage.exclusions=node_modules/**/*,server/build/**/*,config/**/*,scripts/**/*,public/**/*,src/config/**/*,src/app/**/*,src/assets/**/*,src/env/**/*,src/layouts/**/*,src/index.js,src/state/**/*,*/**/*.test.js \
                                 -Dsonar.qualitygate.wait=true \
-                                -Dsonar.javascript.lcov.reportPaths=\**/output/coverage/jest/lcov.info \
-                                -Dsonar.testExecutionReportPaths=**/reports/test-reporter.xml
+                                -Dsonar.javascript.lcov.reportPaths=**/lcov.info \
+                                -Dsonar.testExecutionReportPaths=**/test-reporter.xml
                         """
                     }
                 }
