@@ -150,7 +150,7 @@ pipeline {
                                 -Dsonar.projectKey=${projectKey} \
                                 -Dsonar.nodejs.executable=/usr/bin/node \
                                 -Dsonar.inclusions=src/pages/**/*.js \
-                                -Dsonar.test.inclusions=src/pages/**/*.test.js \
+                                -Dsonar.test.inclusions=**/__tests__/* \
                                 -Dsonar.coverage.exclusions=node_modules/**/*,server/build/**/*,config/**/*,scripts/**/*,public/**/*,src/config/**/*,src/app/**/*,src/assets/**/*,src/env/**/*,src/layouts/**/*,src/index.js,src/state/**/*,*/**/*.test.js \
                                 -Dsonar.qualitygate.wait=true
                         """
