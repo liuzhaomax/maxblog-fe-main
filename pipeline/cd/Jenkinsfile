@@ -90,6 +90,7 @@ pipeline {
                             # ${npmHome}/bin/npm install --save-dev eslint-plugin-react
                             ${npmHome}/bin/npm run lint
                             # ${npmHome}/bin/npm run lint:report
+                            ${npmHome}/bin/npm test
                         """
                     }
                 }
@@ -108,7 +109,6 @@ pipeline {
                             export PATH=\$NODE_HOME/bin:\$PATH
                             ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
                             ${npmHome}/bin/npm run build
-                            # ${npmHome}/bin/npm test
                             cd server
                             ${npmHome}/bin/npm install --max_old_space_size=1024
                             cd ..
