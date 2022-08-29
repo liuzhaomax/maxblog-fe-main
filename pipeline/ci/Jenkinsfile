@@ -154,7 +154,7 @@ pipeline {
                                 -Dsonar.coverage.exclusions=node_modules/**/*,server/build/**/*,config/**/*,scripts/**/*,public/**/*,src/config/**/*,src/app/**/*,src/assets/**/*,src/env/**/*,src/layouts/**/*,src/index.js,src/state/**/*,*/**/*.test.js \
                                 -Dsonar.qualitygate.wait=true \
                                 -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
-                                -Dsonar.testExecutionReportPaths=coverage/clover.xml
+                                -Dsonar.testExecutionReportPaths=coverage/test-reporter.xml
                         """
                     }
                 }
