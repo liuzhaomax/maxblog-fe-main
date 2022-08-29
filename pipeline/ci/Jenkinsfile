@@ -149,8 +149,8 @@ pipeline {
                                 -Dsonar.login=5cbe5f7092c9a2b8168d610c8efee1dfe938a6ad \
                                 -Dsonar.projectKey=${projectKey} \
                                 -Dsonar.nodejs.executable=/usr/bin/node \
-                                -Dsonar.inclusions=src/**/*.js,src/**/*.jsx \
-                                -Dsonar.coverage.exclusions=node_modules/**/*,server/build/**/*,config/**/*,scripts/**/*,public/**/*,src/config/**/*,src/app/**/*,src/assets/**/*,src/env/**/*,src/index.js \
+                                -Dsonar.inclusions=src/**/*.js \
+                                -Dsonar.coverage.exclusions=node_modules/**/*,server/build/**/*,config/**/*,scripts/**/*,public/**/*,src/config/**/*,src/app/**/*,src/assets/**/*,src/env/**/*,src/index.js,src/state/**/* \
                                 -Dsonar.qualitygate.wait=true
                         """
                     }
