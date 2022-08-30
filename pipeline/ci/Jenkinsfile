@@ -108,7 +108,6 @@ pipeline {
                             export PATH=\$NODE_HOME/bin:\$PATH
                             ${npmHome}/bin/npm config set registry https://registry.npmjs.org/
                             ${npmHome}/bin/npm run build
-                            # ${npmHome}/bin/npm test
                             cd server
                             ${npmHome}/bin/npm install --max_old_space_size=1024
                             cd ..
@@ -143,15 +142,18 @@ pipeline {
                             projectKey = projectKey + "_" + strArr[i]
                         }
                         sh """
+                            ${npmHome}/bin/npm run test -- --coverage a
                             ${sonarScannerHome}/bin/sonar-scanner \
                                 -Dsonar.sources=./ \
                                 -Dsonar.projectname=${JOB_NAME} \
                                 -Dsonar.login=5cbe5f7092c9a2b8168d610c8efee1dfe938a6ad \
                                 -Dsonar.projectKey=${projectKey} \
                                 -Dsonar.nodejs.executable=/usr/bin/node \
-                                -Dsonar.inclusions=src/**/*.js,src/**/*.jsx \
-                                -Dsonar.coverage.exclusions=node_modules/**/*,server/build/**/*,config/**/*,scripts/**/*,public/**/*,src/config/**/*,src/app/**/*,src/assets/**/*,src/env/**/*,src/index.js \
-                                -Dsonar.qualitygate.wait=true
+                                -Dsonar.inclusions=src/pages/**/*.js \
+                                -Dsonar.coverage.exclusions=node_modules/**/*,coverage/**/*,server/build/**/*,config/**/*,scripts/**/*,public/**/*,src/config/**/*,src/app/**/*,src/assets/**/*,src/env/**/*,src/layouts/**/*,src/index.js,src/state/**/*,*/**/*.test.js \
+                                -Dsonar.qualitygate.wait=true \
+                                -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+                                # -Dsonar.testExecutionReportPaths=coverage/clover.xml
                         """
                     }
                 }

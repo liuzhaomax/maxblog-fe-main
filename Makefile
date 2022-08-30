@@ -19,4 +19,4 @@ server:
 
 # 单元测试
 unit:
-	npm test
+	npm run test -- --coverage a
