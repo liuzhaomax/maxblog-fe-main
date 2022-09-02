@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/509.7b220e24.chunk.css","mappings":"AAAA,WAEI,qBAAuB,CACvB,UAAW,CACX,mBAAsB,CAHtB,iBAIJ","sources":["pages/component/Component.css"],"sourcesContent":["#COMPONENT {\n    position: relative;\n    background-color: white;\n    color: #333;\n    padding: 50px 0 30px 0;\n}"],"names":[],"sourceRoot":""}
