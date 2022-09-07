@@ -68,10 +68,11 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "node --max_old_space_size=1024 scripts/build.js",
     "test": "node scripts/test.js",
     "lint": "eslint src --fix",
-    "lint:create": "eslint --init"
+    "lint:create": "eslint --init",
+    "lint:report": "eslint ./src -f json --ext .js,.jsx"
   },
   "eslintConfig": {
     "extends": [

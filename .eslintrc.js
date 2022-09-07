@@ -28,17 +28,16 @@ module.exports = {
         "server",
         "scripts",
         "test",
-        "jestGlobalSetup.js"
+        "jestGlobalSetup.js",
+        "sonar-scanner.properties",
+        "pipeline/**/*"
     ],
     "rules": {
         "indent": [
             "error",
             4
         ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
+        "linebreak-style": "off",
         "quotes": [
             "error",
             "double"

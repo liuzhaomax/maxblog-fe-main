@@ -13,9 +13,10 @@ client:
 	npm start
 
 # 启动后端
+.PHONY: server
 server:
-	@cd server && npm start
+	cd server && npm start
 
 # 单元测试
 unit:
-	npm test
+	npm run test -- --coverage a
