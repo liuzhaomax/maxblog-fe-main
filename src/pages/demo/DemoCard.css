@@ -1,0 +1,30 @@
+.demo-card-picture {
+    max-width: 400px;
+}
+
+.demo-card-container {
+    width: 400px;
+    overflow: hidden;
+    margin: 0 0 20px;
+    padding: 10px;
+    break-inside: avoid;
+}
+
+.demo-card-inner-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 0 24px;
+}
+
+.demo-card-createdAt {
+    width: 200px;
+}
+
+.demo-card-view {
+    width: 100px;
+}

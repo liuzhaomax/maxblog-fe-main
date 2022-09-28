@@ -1,0 +1,94 @@
+#ANNOUNCEMENT {
+    display:flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.announcement-title {
+    font-size: 20px;
+    color: #338E6C;
+    padding: 10px 0;
+    width: 100px;
+    font-weight: bold;
+}
+
+.announcement-border {
+    border: 5px dashed #338E6C;
+    width: 285px;
+    height: 213px;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.announcement-border p {
+    font-size: 16px;
+    margin: auto 0;
+}
+
+.announcement-data-border {
+    display:flex;
+    flex-direction:row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 285px;
+    padding: 20px 0;
+}
+
+.announcement-data-title {
+    width: 32px;
+}
+
+.announcement-connect-picture {
+    width: 290px;
+    height: 160px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.announcement-portrait-container {
+    width: 100px;
+    height: 160px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.announcement-portrait {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.announcement-bilibili {
+    width: 100px;
+    height: 33px;
+}
+
+.announcement-wechat {
+    width: 160px;
+    height: 160px;
+}
+
+.announcement-data {
+    font-weight: bold;
+    font-size: 20px;
+    color: #338e6c;
+}
+
+.announcement-data-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+

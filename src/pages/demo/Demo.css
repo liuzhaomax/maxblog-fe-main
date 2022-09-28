@@ -3,4 +3,82 @@
     background-color: white;
     color: #333;
     padding: 50px 0 30px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.demo-north {
+    max-width: 1280px;
+    width: 100%;
+    padding: 0 0 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.demo-south {
+    width: 1280px;
+    padding: 0 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.demo-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.demo-north-picture {
+    max-width: 900px;
+    min-width: 400px;
+    height: 530px;
+    width: 100%;
+    background-color: #52c41a;
+}
+
+.demo-card-wrap {
+    width: 1280px;
+    margin: 0 auto;
+    columns: 3;
+    column-gap: 40px;
+}
+
+@media screen and (min-width: 840px) and (max-width: 1280px)
+{
+    .demo-card-wrap {
+        width: 840px;
+        columns: 2;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 840px)
+{
+    .demo-card-wrap {
+        width: 400px;
+        columns: 1;
+    }
+}
+
+@media (max-width: 400px)
+{
+    .demo-card-wrap {
+        width: 400px;
+        columns: 1;
+    }
+}
+
+.demo-card-more-card {
+    width: 1280px;
+    margin-top: 80px;
+    text-align: center;
 }
