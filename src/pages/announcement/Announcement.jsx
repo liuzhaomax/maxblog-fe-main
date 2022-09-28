@@ -1,5 +1,6 @@
 import React from "react"
 import "./Announcement.css"
+import "../demo/demoNorth.css"
 import imgPortrait from "../../assets/announcement/announcement_portrait.png"
 import imgBili from "../../assets/announcement/bilibili.png"
 import imgWechat from "../../assets/announcement/announcement_wechat.png"
@@ -9,13 +10,14 @@ const Announcement = () => {
     const demoState = [23,100,20000]
     return(
         <div id="ANNOUNCEMENT" className="ANNOUNCEMENT">
-            <div className="announcement-title">公告</div>
-            <div className="announcement-border">
-                <p>
-                    愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声。
-                    有一分热，发一分光。就令萤火一般，也可以在黑暗里发一点光，不必等候炬火。
-                    ——鲁迅
-                </p>
+            <div className="announcement-title">公告
+                <div className="announcement-border">
+                    <p>
+                        愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声。
+                        有一分热，发一分光。就令萤火一般，也可以在黑暗里发一点光，不必等候炬火。
+                        ——鲁迅
+                    </p>
+                </div>
             </div>
             <div className="announcement-data-border">
                 <div className="announcement-data-wrap">
