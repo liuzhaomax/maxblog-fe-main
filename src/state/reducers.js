@@ -1,8 +1,8 @@
 import { combineReducers } from "redux"
-import pizzaSlice from "./reducers/pizzaSlice"
+import demo from "./reducers/demo"
 
 const rootReducer = combineReducers({
-    pizzaSlice,
+    demo,
 })
 
 export default rootReducer

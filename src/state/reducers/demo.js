@@ -2,26 +2,22 @@ import { createSlice } from "@reduxjs/toolkit"
 // import { useDispatch, useSelector } from "react-redux"
 
 const initialState = {
-    toppings: ["pepper"],
-    gluten: true,
+    demoId: 0,
 }
 
-export const pizzaSlice = createSlice({
-    name: "pizza",
+export const demo = createSlice({
+    name: "demoId",
     initialState,
     reducers: {
-        toggleGluten: state => {
-            state.gluten = !state.gluten
-        },
-        addTopping: (state, action) => {
-            state.toppings = [...state.toppings, action.payload]
+        setDemoId: (state, action) => {
+            state.demoId = action.payload
         }
     },
 })
 
-export const { toggleGluten, addTopping } = pizzaSlice.actions
+export const { setDemoId } = demo.actions
 
-export default  pizzaSlice.reducer
+export default  demo.reducer
 
 // function App() {
 // 	const pizza = useSelector(state => state.pizza)

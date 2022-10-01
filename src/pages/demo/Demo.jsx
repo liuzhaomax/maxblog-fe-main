@@ -7,10 +7,12 @@ import DemoSearch from "./DemoSearch"
 import DemoCard from "./DemoCard"
 import { getDemo } from "./handlers"
 import * as ReactDOM from "react-dom/client"
-
+import { Provider } from "react-redux"
+import { _STORE } from "../../state/store"
+import { useNavigate } from "react-router-dom"
 
 function Demo() {
-
+    const navigate = useNavigate()
     useEffect(() => {
         (async () => {
             await getDemo()
@@ -26,7 +28,11 @@ function Demo() {
     const loadCards = demos => {
         let container = document.getElementById("demo-card-wrap")
         let cards = demos.data.map((element,index) => {
-            return <DemoCard key={index} data={element}/>
+            return (
+                <Provider store={_STORE} key={index}>
+                    <DemoCard key={index} data={element} navigate={navigate}/>
+                </Provider>
+            )
         })
         ReactDOM.createRoot(container).render(cards)
     }

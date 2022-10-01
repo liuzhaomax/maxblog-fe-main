@@ -21,6 +21,6 @@ axios.defaults.baseURL = config.beBaseUrl
 
 createRoot(document.getElementById("root")).render(
     <Provider store={_STORE}>
-        <App store={_STORE} />
+        <App />
     </Provider>
 )
