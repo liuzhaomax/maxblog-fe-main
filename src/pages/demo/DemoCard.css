@@ -5,9 +5,9 @@
 .demo-card-container {
     width: 400px;
     overflow: hidden;
-    margin: 0 0 20px;
-    padding: 10px;
+    margin: 0 0 40px;
     break-inside: avoid;
+    border: 1px solid #ddd;
 }
 
 .demo-card-inner-wrap {
@@ -17,14 +17,26 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 0 24px;
 }
 
 .demo-card-createdAt {
-    width: 200px;
+    width: 140px;
 }
 
 .demo-card-view {
-    width: 100px;
+    width: 150px;
+    text-align: right;
+}
+
+.demo-card-meta .ant-card-meta-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.demo-card-container:hover {
+    box-shadow: -2px -2px 6px rgba(51, 142, 108,0.5),
+    5px 5px 10px rgba(51, 142, 108,0.5);
+    cursor: pointer;
 }

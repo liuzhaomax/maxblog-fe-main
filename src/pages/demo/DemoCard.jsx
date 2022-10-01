@@ -24,9 +24,9 @@ const DemoCard = (props) => {
                 }
                 bordered={false}
             >
-                <Meta
+                <Meta className="demo-card-meta"
                     title={props.data.title}
-                    description={props.data.desc}
+                    description={props.data.desc.length > 90 ? props.data.desc.slice(0,90)+"..." : props.data.desc}
                 />
             </Card>
             <div className="demo-card-inner-wrap">

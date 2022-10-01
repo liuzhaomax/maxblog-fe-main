@@ -1,9 +1,8 @@
 import React from "react"
 import "./Announcement.css"
-import "../demo/demoNorth.css"
-import imgPortrait from "../../assets/announcement/announcement_portrait.png"
-import imgBili from "../../assets/announcement/bilibili.png"
-import imgWechat from "../../assets/announcement/announcement_wechat.png"
+import "../demo/DemoNorth.css"
+import imgPortrait from "../../assets/announcement/announcement_portrait.jpg"
+import imgWechat from "../../assets/announcement/announcement_wechat.jpg"
 
 
 const Announcement = () => {
@@ -49,7 +48,9 @@ const Announcement = () => {
             <div className="announcement-connect-picture">
                 <div className="announcement-portrait-container">
                     <img src={imgPortrait} alt="announcement_portrait" className="announcement-portrait"/>
-                    <img src={imgBili} alt="bilibili" className="announcement-bilibili"/>
+                    <a href="https://space.bilibili.com/18359348" target="_blank" rel="noreferrer">
+                        <img src={"https://img.shields.io/badge/Bilibili-fb7299?style=flat-square&logo=Bilibili&logoColor=white"} alt="bilibili" className="announcement-bilibili"/>
+                    </a>
                 </div>
                 <img src={imgWechat} alt="announcement_wechat" className="announcement-wechat"/>
             </div>

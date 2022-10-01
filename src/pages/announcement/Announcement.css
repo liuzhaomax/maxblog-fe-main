@@ -74,6 +74,10 @@
     height: 33px;
 }
 
+.announcement-bilibili:hover {
+    cursor: pointer;
+}
+
 .announcement-wechat {
     width: 160px;
     height: 160px;

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import "./Demo.css"
-import "./demoNorth.css"
+import "./DemoNorth.css"
 import { DEMO } from "../../config/cstModule"
 import Announcement from "../announcement/Announcement"
 import DemoSearch from "./DemoSearch"

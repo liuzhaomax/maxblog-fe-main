@@ -2,7 +2,7 @@
     position: relative;
     background-color: white;
     color: #333;
-    padding: 50px 0 30px 0;
+    padding: 50px 0 0 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -23,7 +23,6 @@
 
 .demo-south {
     width: 1280px;
-    padding: 0 0 80px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -79,6 +78,12 @@
 
 .demo-card-more-card {
     width: 1280px;
-    margin-top: 80px;
+    height: 80px;
     text-align: center;
+    line-height: 80px;
+}
+
+.demo-card-more-card:hover {
+    cursor: pointer;
+    color: #338e6c;
 }
