@@ -28,7 +28,6 @@ function Home() {
             I am Home <br/>
             I am Home <br/>
             I am Home <br/>
-            I am Home <br/>
         </div>
     )
 }
