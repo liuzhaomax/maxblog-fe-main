@@ -3,12 +3,9 @@ import React from "react"
 const { Meta } = Card
 import "./DemoCard.css"
 import { EyeOutlined } from "@ant-design/icons"
-import { useDispatch } from "react-redux"
-import { setDemoId } from "../../state/reducers/demo"
 import { DEMO } from "../../config/cstModule"
 
 const DemoCard = (props) => {
-    const dispatch = useDispatch()
     let datetime = new Date(props.data.createdAt)
     let year = datetime.getFullYear()
     let month = String(Number(datetime.getMonth())+1)
@@ -18,7 +15,6 @@ const DemoCard = (props) => {
     let createdAt = `${year}-${month}-${date} ${hour}:${minute}`
 
     const clickCard = () => {
-        dispatch(setDemoId(props.data.id))
         props.navigate(DEMO.FULL_PATH + `/${props.data.id}`)
     }
 
