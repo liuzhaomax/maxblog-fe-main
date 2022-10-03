@@ -6,14 +6,9 @@ function HomeProjIntro () {
     return(
         <div id="HOME_PROJ_INTRO" className="HOME_PROJ_INTRO">
             <iframe className="intro-video" src="//player.bilibili.com/player.html?aid=587865856&bvid=BV1UB4y1c7k8&cid=332237656&page=1"
-                allowFullScreen="allowfullscreen" width="100%" height="500" scrolling="no" frameBorder="0"
+                allowFullScreen="allowfullscreen" width="80vw" height="500" scrolling="no" frameBorder="0"
                 sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" />
             <div className="home-proj-intro-content">
-                <Card className="home-proj-intro-card">
-                    <p>Card content</p>
-                    <p>Card content</p>
-                    <p>Card content</p>
-                </Card>
                 <Card className="home-proj-intro-card">
                     <p>Card content</p>
                     <p>Card content</p>
