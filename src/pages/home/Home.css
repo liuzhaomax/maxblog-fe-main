@@ -3,33 +3,21 @@
     background-color: #4b626d;
     color: white;
     padding-top: 50px;
-    scroll-snap-type: y proximity;
-    scroll-padding: 50px;
-    height: 100vh;
-    overflow: auto;
-}
-
-#HOME::-webkit-scrollbar {
-    display: none;
+    height: 5000px;
 }
 
 .home-test {
-    height: calc(100vh - 50px);
-    scroll-snap-align: start;
-}
-
-.home-test:nth-child(1) {
-    background-color: #338e6c;
-}
-
-.home-test:nth-child(2) {
     background-color: #995566;
+    width: 100%;
+    height: 100vh;
+    margin-top: 50px;
 }
 
-.home-test:nth-child(3) {
-    background-color: #0074D9;
+.home-test-fixed {
+    position: fixed;
+    top: 0;
 }
 
-.home-test:nth-child(4) {
-    background-color: #f9cd0b;
+.home-test-relative {
+    position: relative;
 }
