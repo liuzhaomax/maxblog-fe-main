@@ -15,7 +15,7 @@ function HomeNav() {
         let nav = document.getElementById("home-nav")
         window.addEventListener("scroll", () => {
             let value = window.scrollY
-            if (value >= 710) {
+            if (value >= 718) {
                 nav.style.backgroundColor = "#333"
                 nav.style.height = "50px"
             } else {

@@ -1,33 +1,17 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import "./Home.css"
 import { HOME } from "../../config/cstModule"
-import { getContributors } from "./handlers"
-import HomeProjIntro from "./HomeProjIntro"
+// import HomeProjIntro from "./HomeProjIntro"
 
 function Home() {
-    const [contributors, setContributors] = useState(null)
-
-    useEffect(() => {
-        (async () => {
-            await getContributors()
-                .then(res => {
-                    setContributors(res.data)
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-        })()
-    },[])
 
     return (
         <div id={HOME.KEY} className={HOME.KEY}>
-            <HomeProjIntro/>
-            <p>{contributors ? contributors[0].login : "" }</p>
-            I am Home <br/>
-            I am Home <br/>
-            I am Home <br/>
-            I am Home <br/>
-            I am Home <br/>
+            {/*<HomeProjIntro/>*/}
+            <div className="home-test">I m home1</div>
+            <div className="home-test">I m home2</div>
+            <div className="home-test">I m home3</div>
+            <div className="home-test">I m home4</div>
         </div>
     )
 }
