@@ -1,0 +1,92 @@
+.home-me {
+    background-color: #4b626d;
+    width: calc(100% + 200px);
+    height: 100vh;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.home-me-fixed {
+    position: fixed;
+    top: 0;
+}
+
+.home-me-relative {
+    position: relative;
+}
+
+.home-me-ability {
+    width: 200px;
+    height: 100%;
+    transform: skewX(-10deg) translateX(-85px);
+    /*background: linear-gradient(85deg, #434343, #262626);*/
+}
+
+.home-me-ability h2 {
+    transform: skewX(10deg);
+    color: white;
+}
+
+.others {
+    background-color: #f9cd0b;
+}
+
+.devops {
+    background-color: #338e6c;
+}
+
+.database {
+    background-color: #0074D9;
+}
+
+.frontend {
+    background-color: #660066;
+}
+
+.backend {
+    background-color: #995566;
+}
+
+.basic {
+    background-color: rgba(0,0,0,1);
+    width: calc(100vw - 855px);
+}
+
+.home-me-ability-wrap {
+    height: 100%;
+    width: 100%;
+    padding: 40px 0 50px 30px;
+}
+
+.others .home-me-ability-wrap {
+    background: url("../../assets/home/others.jpg") no-repeat left center;
+    background-size:cover;
+}
+
+.devops .home-me-ability-wrap {
+    background: url("../../assets/home/devops.jpg") no-repeat left center;
+    background-size:cover;
+}
+
+.database .home-me-ability-wrap {
+    background: url("../../assets/home/database.png") no-repeat left center;
+    background-size:cover;
+}
+
+.frontend .home-me-ability-wrap {
+    background: url("../../assets/home/js.png") no-repeat left center;
+    background-size:cover;
+}
+
+.backend .home-me-ability-wrap {
+    background: url("../../assets/home/golang.jpg") no-repeat left center;
+    background-size:cover;
+}
+
+.basic .home-me-ability-wrap {
+    background: url("../../assets/home/basic.png") no-repeat left center;
+    background-size:cover;
+}
