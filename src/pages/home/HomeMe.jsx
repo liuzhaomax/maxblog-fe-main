@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import "./HomeMe.css"
+import portrait from "../../assets/home/0.jpg"
 
 function HomeMe() {
     useEffect(() => {
@@ -63,6 +64,12 @@ function HomeMe() {
             <div className="home-me-ability basic">
                 <div className="home-me-ability-wrap">
                     <h2>基本信息</h2>
+                    <img id="home-me-portrait" src={portrait} alt="portrait" />
+                    <div className="home-me-ability-content">
+                        <p>欢迎您的来访，我是马克西。全栈工程师。</p>
+                        <p>最近在干什么，最近在学什么，代码仓库和B站，技能图标</p>
+                        <p>祝前程似锦！</p>
+                    </div>
                 </div>
             </div>
         </div>

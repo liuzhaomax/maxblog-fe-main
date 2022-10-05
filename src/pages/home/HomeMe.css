@@ -22,7 +22,6 @@
     width: 200px;
     height: 100%;
     transform: skewX(-10deg) translateX(-85px);
-    /*background: linear-gradient(85deg, #434343, #262626);*/
 }
 .home-me-ability:hover {
     cursor: pointer;
@@ -31,31 +30,16 @@
 .home-me-ability h2 {
     transform: skewX(10deg);
     color: white;
+    align-self: flex-start;
 }
 
+/*动画初值*/
 .others {
-    background-color: #f9cd0b;
     width: calc(100vw - 950px);
 }
 
-.devops {
-    background-color: #338e6c;
-}
-
-.database {
-    background-color: #0074D9;
-}
-
-.frontend {
-    background-color: #660066;
-}
-
-.backend {
-    background-color: #995566;
-}
-
+/*静态初值*/
 .basic {
-    background-color: rgba(0,0,0,1);
     width: calc(100vw - 850px);
 }
 
@@ -98,6 +82,11 @@
     height: 100%;
     width: 100%;
     padding: 40px 0 50px 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .others .home-me-ability-wrap {
@@ -128,4 +117,26 @@
 .basic .home-me-ability-wrap {
     background: url("../../assets/home/basic.png") no-repeat left center;
     background-size:cover;
+}
+
+/******************************************/
+/*内容*/
+#home-me-portrait {
+    transform: skewX(10deg);
+    border-radius: 200px;
+    margin-bottom: 40px;
+}
+
+.home-me-ability-content {
+    transform: skewX(10deg) translateX(80px);
+    background: linear-gradient(85deg, #333, #222);
+    opacity: 0.97;
+    width: 500px;
+    height: 300px;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.home-me-ability-content p {
+    font-size: 18px;
 }
