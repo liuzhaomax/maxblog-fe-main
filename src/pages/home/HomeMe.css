@@ -24,6 +24,9 @@
     transform: skewX(-10deg) translateX(-85px);
     /*background: linear-gradient(85deg, #434343, #262626);*/
 }
+.home-me-ability:hover {
+    cursor: pointer;
+}
 
 .home-me-ability h2 {
     transform: skewX(10deg);
@@ -33,7 +36,6 @@
 .others {
     background-color: #f9cd0b;
     width: calc(100vw - 950px);
-    /*transition: 1s width ease-out;*/
 }
 
 .devops {

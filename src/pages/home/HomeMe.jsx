@@ -3,6 +3,10 @@ import "./HomeMe.css"
 
 function HomeMe() {
     useEffect(() => {
+        animation()
+    },[])
+
+    const animation = () => {
         window.addEventListener("scroll", () => {
             let portal = document.getElementById("parallax-compo")
             let intro = document.getElementById("HOME_PROJ_INTRO")
@@ -27,7 +31,8 @@ function HomeMe() {
                 me.style.marginTop = 0
             }
         })
-    },[])
+    }
+
     return (
         <div id="home-me" className="home-me home-me-relative">
             <div className="home-me-ability others">
