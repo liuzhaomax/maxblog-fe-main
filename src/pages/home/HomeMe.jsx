@@ -4,24 +4,37 @@ import "./HomeMe.css"
 function HomeMe() {
     useEffect(() => {
         window.addEventListener("scroll", () => {
-            let test = document.getElementById("home-me")
             let portal = document.getElementById("parallax-compo")
             let intro = document.getElementById("HOME_PROJ_INTRO")
             let me = document.getElementById("home-me")
+            let ability = document.getElementsByClassName("home-me-ability")
+            let others = document.getElementsByClassName("others")
             let value = window.scrollY
             if (value >= portal.clientHeight + intro.clientHeight &&
                 value < portal.clientHeight + intro.clientHeight + me.clientHeight) {
-                test.classList.remove("home-me-relative")
-                test.classList.add("home-me-fixed")
+                me.classList.remove("home-me-relative")
+                me.classList.add("home-me-fixed")
                 me.style.marginTop = 0
+                for (let i = 0; i < ability.length-1; i++) {
+                    ability[i].classList.add("animation"+i)
+                }
+                setTimeout(() => {
+                    others[0].style.width = 200 + "px"
+                },1000)
             } else if (value >= portal.clientHeight + intro.clientHeight + me.clientHeight) {
-                test.classList.remove("home-me-fixed")
-                test.classList.add("home-me-relative")
+                me.classList.remove("home-me-fixed")
+                me.classList.add("home-me-relative")
                 me.style.marginTop = me.clientHeight + "px"
+                for (let i = 0; i < ability.length-1; i++) {
+                    ability[i].classList.remove("animation"+i)
+                }
             } else {
-                test.classList.remove("home-me-fixed")
-                test.classList.add("home-me-relative")
+                me.classList.remove("home-me-fixed")
+                me.classList.add("home-me-relative")
                 me.style.marginTop = 0
+                for (let i = 0; i < ability.length-1; i++) {
+                    ability[i].classList.remove("animation"+i)
+                }
             }
         })
     },[])

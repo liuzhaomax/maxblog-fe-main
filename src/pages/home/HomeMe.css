@@ -1,6 +1,6 @@
 .home-me {
     background-color: #4b626d;
-    width: calc(100% + 200px);
+    width: 200%;
     height: 100vh;
     padding-top: 50px;
     display: flex;
@@ -32,6 +32,8 @@
 
 .others {
     background-color: #f9cd0b;
+    width: calc(100vw - 950px);
+    /*transition: 1s width ease-out;*/
 }
 
 .devops {
@@ -52,7 +54,32 @@
 
 .basic {
     background-color: rgba(0,0,0,1);
-    width: calc(100vw - 855px);
+    width: calc(100vw - 850px);
+}
+
+.animation0 {
+    animation: moving 1s ease-out;
+    animation-delay: 0s;
+}
+.animation1 {
+    animation: moving 1s ease-out;
+    animation-delay: 0.5s;
+}
+.animation2 {
+    animation: moving 1s ease-out;
+    animation-delay: 1s;
+}
+.animation3 {
+    animation: moving 1s ease-out;
+    animation-delay: 1.5s;
+}
+.animation4 {
+    animation: moving 1s ease-out;
+    animation-delay: 2s;
+}
+@keyframes moving {
+    0%   {width: calc(100vw - 950px);}
+    100% {width: 200px;}
 }
 
 .home-me-ability-wrap {
