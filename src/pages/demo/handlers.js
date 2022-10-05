@@ -8,3 +8,7 @@ export const getDemo = () => {
 export  const getDemoById = (id) => {
     return axios.get(URL.INNER.Demo+`/${id}`)
 }
+
+export  const getDemoByCount = (count) => {
+    return axios.get(URL.INNER.Demo+`?count=${count}`)
+}
