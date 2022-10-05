@@ -8,7 +8,6 @@ function HomeMe() {
             let intro = document.getElementById("HOME_PROJ_INTRO")
             let me = document.getElementById("home-me")
             let ability = document.getElementsByClassName("home-me-ability")
-            let others = document.getElementsByClassName("others")
             let value = window.scrollY
             if (value >= portal.clientHeight + intro.clientHeight &&
                 value < portal.clientHeight + intro.clientHeight + me.clientHeight) {
@@ -18,23 +17,14 @@ function HomeMe() {
                 for (let i = 0; i < ability.length-1; i++) {
                     ability[i].classList.add("animation"+i)
                 }
-                setTimeout(() => {
-                    others[0].style.width = 200 + "px"
-                },1000)
             } else if (value >= portal.clientHeight + intro.clientHeight + me.clientHeight) {
                 me.classList.remove("home-me-fixed")
                 me.classList.add("home-me-relative")
                 me.style.marginTop = me.clientHeight + "px"
-                for (let i = 0; i < ability.length-1; i++) {
-                    ability[i].classList.remove("animation"+i)
-                }
             } else {
                 me.classList.remove("home-me-fixed")
                 me.classList.add("home-me-relative")
                 me.style.marginTop = 0
-                for (let i = 0; i < ability.length-1; i++) {
-                    ability[i].classList.remove("animation"+i)
-                }
             }
         })
     },[])
