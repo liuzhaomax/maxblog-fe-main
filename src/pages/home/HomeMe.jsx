@@ -22,6 +22,16 @@ function HomeMe() {
                 for (let i = 0; i < ability.length-1; i++) {
                     ability[i].classList.add("animation"+i)
                 }
+                setTimeout(() => {
+                    for (let i = 0; i < ability.length; i++) {
+                        if (i === ability.length-1) {
+                            ability[i].classList.add("unfolded")
+                        } else {
+                            ability[i].classList.add("folded")
+                        }
+                        ability[i].addEventListener("click", onClick)
+                    }
+                },3000)
             } else if (value >= portal.clientHeight + intro.clientHeight + me.clientHeight) {
                 me.classList.remove("home-me-fixed")
                 me.classList.add("home-me-relative")
@@ -32,6 +42,23 @@ function HomeMe() {
                 me.style.marginTop = 0
             }
         })
+    }
+
+    const onClick = e => {
+        e.preventDefault()
+        let ability = document.getElementsByClassName("home-me-ability")
+        for (let i = 0; i < ability.length; i++) {
+            for (let j = 0; j < ability[i].classList.length; j++) {
+                if (ability[i].classList[j] === "unfolded") {
+                    ability[i].classList.remove("unfolded")
+                    ability[i].classList.add("folded")
+                    e.currentTarget.classList.remove("folded")
+                    e.currentTarget.classList.add("unfolded")
+                    i = ability.length
+                    break
+                }
+            }
+        }
     }
 
     return (
@@ -64,11 +91,13 @@ function HomeMe() {
             <div className="home-me-ability basic">
                 <div className="home-me-ability-wrap">
                     <h2>基本信息</h2>
-                    <img id="home-me-portrait" src={portrait} alt="portrait" />
-                    <div className="home-me-ability-content">
-                        <p>欢迎您的来访，我是马克西。全栈工程师。</p>
-                        <p>最近在干什么，最近在学什么，代码仓库和B站，技能图标</p>
-                        <p>祝前程似锦！</p>
+                    <div className="home-me-ability-content-wrap">
+                        <img id="home-me-portrait" src={portrait} alt="portrait" />
+                        <div className="home-me-ability-content">
+                            <p>欢迎您的来访，我是马克西。全栈工程师。</p>
+                            <p>最近在干什么，最近在学什么，代码仓库和B站，技能图标</p>
+                            <p>祝前程似锦！</p>
+                        </div>
                     </div>
                 </div>
             </div>

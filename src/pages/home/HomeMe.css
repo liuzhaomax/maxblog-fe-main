@@ -19,18 +19,37 @@
 }
 
 .home-me-ability {
-    width: 200px;
     height: 100%;
+    width: 200px;
     transform: skewX(-10deg) translateX(-85px);
 }
-.home-me-ability:hover {
+/*hover特效：transition对width无效*/
+.folded:hover {
     cursor: pointer;
+    transform: skewX(-10deg) translateX(-95px);
+    width: 210px !important;
 }
-
-.home-me-ability h2 {
-    transform: skewX(10deg);
-    color: white;
-    align-self: flex-start;
+.folded:hover ~.folded, .folded:hover ~.unfolded {
+    transform: skewX(-10deg) translateX(-95px);
+}
+/*click特效*/
+.folded {
+    width: 200px !important;
+}
+.folded.basic {
+     width: 310px !important;
+}
+.unfolded.basic {
+    width: calc(100vw - 850px) !important;
+}
+.unfolded {
+    width: calc(100vw - 950px) !important;
+}
+.folded .home-me-ability-content-wrap {
+    display: none;
+}
+.unfolded .home-me-ability-content-wrap {
+    display: flex;
 }
 
 /*动画初值*/
@@ -89,6 +108,12 @@
     align-items: center;
 }
 
+.home-me-ability-wrap h2 {
+    transform: skewX(10deg);
+    color: white;
+    align-self: flex-start;
+}
+
 .others .home-me-ability-wrap {
     background: url("../../assets/home/others.jpg") no-repeat left center;
     background-size:cover;
@@ -121,6 +146,14 @@
 
 /******************************************/
 /*内容*/
+.home-me-ability-content-wrap {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 #home-me-portrait {
     transform: skewX(10deg);
     border-radius: 200px;
