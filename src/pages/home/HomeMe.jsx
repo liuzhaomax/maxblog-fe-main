@@ -2,6 +2,8 @@ import React, { useEffect } from "react"
 import "./HomeMe.css"
 import portrait from "../../assets/home/0.jpg"
 
+let addFoldedClassRemaining = 1 // 只对第一次进入滚动区时，设置folded和unfolded属性，避免后续打开卡片后，被重新设置属性，从而让被打开的卡片同时具有两种属性的BUG
+
 function HomeMe() {
     useEffect(() => {
         animation()
@@ -22,16 +24,19 @@ function HomeMe() {
                 for (let i = 0; i < ability.length-1; i++) {
                     ability[i].classList.add("animation"+i)
                 }
-                setTimeout(() => {
-                    for (let i = 0; i < ability.length; i++) {
-                        if (i === ability.length-1) {
-                            ability[i].classList.add("unfolded")
-                        } else {
-                            ability[i].classList.add("folded")
+                if (addFoldedClassRemaining) {
+                    setTimeout(() => {
+                        for (let i = 0; i < ability.length; i++) {
+                            if (i === ability.length-1) {
+                                ability[i].classList.add("unfolded")
+                            } else {
+                                ability[i].classList.add("folded")
+                            }
+                            ability[i].addEventListener("click", onClick)
                         }
-                        ability[i].addEventListener("click", onClick)
-                    }
-                },3000)
+                    },3000)
+                    addFoldedClassRemaining = 0
+                }
             } else if (value >= portal.clientHeight + intro.clientHeight + me.clientHeight) {
                 me.classList.remove("home-me-fixed")
                 me.classList.add("home-me-relative")
