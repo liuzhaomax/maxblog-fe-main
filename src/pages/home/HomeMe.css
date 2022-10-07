@@ -160,16 +160,30 @@
     margin-bottom: 40px;
 }
 
-.home-me-ability-content {
-    transform: skewX(10deg) translateX(80px);
-    background: linear-gradient(85deg, #333, #222);
-    opacity: 0.97;
-    width: 500px;
-    height: 300px;
-    border-radius: 20px;
-    padding: 30px;
+.home-me-ability-content p {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+.home-me-ability-content h3 {
+    color: white;
 }
 
-.home-me-ability-content p {
-    font-size: 18px;
+.home-me-ability-content {
+    background: linear-gradient(85deg, #333, #222);
+    opacity: 0.97;
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
 }
+
+.basic-content {
+    transform: skewX(10deg) translateX(80px);
+    height: 300px;
+}
+
+.common-content {
+    transform: skewX(10deg) translateX(0px);
+    height: 80vh;
+}
+
+

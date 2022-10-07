@@ -91,6 +91,13 @@ function HomeMe() {
             <div className="home-me-ability backend">
                 <div className="home-me-ability-wrap">
                     <h2>后端</h2>
+                    <div className="home-me-ability-content-wrap">
+                        <div className="home-me-ability-content common-content">
+                            <h3>框架：Golang-Gin, Nodejs-Express</h3>
+                            <p>123</p>
+                            <p>324</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="home-me-ability basic">
@@ -98,8 +105,9 @@ function HomeMe() {
                     <h2>基本信息</h2>
                     <div className="home-me-ability-content-wrap">
                         <img id="home-me-portrait" src={portrait} alt="portrait" />
-                        <div className="home-me-ability-content">
-                            <p>欢迎您的来访，我是马克西。全栈工程师。</p>
+                        <div className="home-me-ability-content basic-content">
+                            <h3>欢迎您的来访</h3>
+                            <p>我是马克西。全栈工程师。</p>
                             <p>最近在干什么，最近在学什么，代码仓库和B站，技能图标</p>
                             <p>祝前程似锦！</p>
                         </div>
