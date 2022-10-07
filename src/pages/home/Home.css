@@ -2,5 +2,5 @@
     position: relative;
     background-color: #4b626d;
     color: white;
-    padding: 80px 0 30px 0;
+    height: calc(300vh - 80px);
 }

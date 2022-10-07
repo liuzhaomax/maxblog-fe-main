@@ -1,0 +1,189 @@
+.home-me {
+    background-color: #4b626d;
+    width: 200%;
+    height: 100vh;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.home-me-fixed {
+    position: fixed;
+    top: 0;
+}
+
+.home-me-relative {
+    position: relative;
+}
+
+.home-me-ability {
+    height: 100%;
+    width: 200px;
+    transform: skewX(-10deg) translateX(-85px);
+}
+/*hover特效：transition对width无效*/
+.folded:hover {
+    cursor: pointer;
+    transform: skewX(-10deg) translateX(-95px);
+    width: 210px !important;
+}
+.folded:hover ~.folded, .folded:hover ~.unfolded {
+    transform: skewX(-10deg) translateX(-95px);
+}
+/*click特效*/
+.folded {
+    width: 200px !important;
+}
+.folded.basic {
+     width: 310px !important;
+}
+.unfolded.basic {
+    width: calc(100vw - 850px) !important;
+}
+.unfolded {
+    width: calc(100vw - 950px) !important;
+}
+.folded .home-me-ability-content-wrap {
+    display: none;
+}
+.unfolded .home-me-ability-content-wrap {
+    display: flex;
+}
+
+/*动画初值*/
+.others {
+    width: calc(100vw - 950px);
+}
+
+/*静态初值*/
+.basic {
+    width: calc(100vw - 850px);
+}
+
+.animation0 {
+    animation: moving1 0.5s ease-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes moving1 {
+    0%   {width: calc(100vw - 950px);}
+    100% {width: 200px;}
+}
+.animation1 {
+    animation: moving 1s ease-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+.animation2 {
+    animation: moving 1s ease-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+.animation3 {
+    animation: moving 1s ease-out;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+}
+.animation4 {
+    animation: moving 1s ease-out;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+@keyframes moving {
+    0%   {width: 200px;}
+    50%  {width: calc(100vw - 950px);}
+    100% {width: 200px;}
+}
+
+.home-me-ability-wrap {
+    height: 100%;
+    width: 100%;
+    padding: 40px 0 50px 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.home-me-ability-wrap h2 {
+    transform: skewX(10deg);
+    color: white;
+    align-self: flex-start;
+}
+
+.others .home-me-ability-wrap {
+    background: url("../../assets/home/others.jpg") no-repeat left center;
+    background-size:cover;
+}
+
+.devops .home-me-ability-wrap {
+    background: url("../../assets/home/devops.jpg") no-repeat left center;
+    background-size:cover;
+}
+
+.database .home-me-ability-wrap {
+    background: url("../../assets/home/database.png") no-repeat left center;
+    background-size:cover;
+}
+
+.frontend .home-me-ability-wrap {
+    background: url("../../assets/home/js.png") no-repeat left center;
+    background-size:cover;
+}
+
+.backend .home-me-ability-wrap {
+    background: url("../../assets/home/golang.png") no-repeat left center;
+    background-size:cover;
+}
+
+.basic .home-me-ability-wrap {
+    background: url("../../assets/home/basic.png") no-repeat left center;
+    background-size:cover;
+}
+
+/******************************************/
+/*内容*/
+.home-me-ability-content-wrap {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#home-me-portrait {
+    transform: skewX(10deg);
+    border-radius: 200px;
+    margin-bottom: 40px;
+}
+
+.home-me-ability-content p {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+.home-me-ability-content h3 {
+    color: white;
+}
+
+.home-me-ability-content {
+    background: linear-gradient(85deg, #333, #222);
+    opacity: 0.97;
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+}
+
+.basic-content {
+    transform: skewX(10deg) translateX(80px);
+    height: 300px;
+}
+
+.common-content {
+    transform: skewX(10deg) translateX(0px);
+    height: 80vh;
+}
+
+

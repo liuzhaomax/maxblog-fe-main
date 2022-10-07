@@ -1,7 +1,7 @@
 html {
     color: #333;
     overflow-x: hidden;
-    overflow-y: auto !important;
+    overflow-y: auto;
     scroll-behavior: smooth;
     background-color: #535353;
 }
