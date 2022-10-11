@@ -71,21 +71,49 @@ function HomeMe() {
             <div className="home-me-ability others">
                 <div className="home-me-ability-wrap">
                     <h2>其他领域</h2>
+                    <div className="home-me-ability-content-wrap">
+                        <div className="home-me-ability-content common-content">
+                            <h3>框架：React, Vue</h3>
+                            <p>123</p>
+                            <p>324</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="home-me-ability devops">
                 <div className="home-me-ability-wrap">
                     <h2>DevOps</h2>
+                    <div className="home-me-ability-content-wrap">
+                        <div className="home-me-ability-content common-content">
+                            <h3>框架：React, Vue</h3>
+                            <p>123</p>
+                            <p>324</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="home-me-ability database">
                 <div className="home-me-ability-wrap">
                     <h2>数据库</h2>
+                    <div className="home-me-ability-content-wrap">
+                        <div className="home-me-ability-content common-content">
+                            <h3>框架：React, Vue</h3>
+                            <p>123</p>
+                            <p>324</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="home-me-ability frontend">
                 <div className="home-me-ability-wrap">
                     <h2>前端</h2>
+                    <div className="home-me-ability-content-wrap">
+                        <div className="home-me-ability-content common-content">
+                            <h3>框架：React, Vue</h3>
+                            <p>123</p>
+                            <p>324</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="home-me-ability backend">
